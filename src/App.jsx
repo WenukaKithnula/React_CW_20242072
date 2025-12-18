@@ -1,35 +1,33 @@
-import { useState } from 'react'
+import { useState } from "react";
 import propertiesData from "./data/properties.json";
+import SearchForm from "./Components/SearchForm"; // ✅ CORRECT PATH
+
 
 
 function App() {
-//Fetch all the property Data in to a varble that cannot be changed
-  const [properties] = useState(propertiesData.properties)
+  const [properties] = useState(propertiesData.properties);
 
   const [searchCriteria, setSearchCriteria] = useState({
-  type: "any",
-  minPrice: "",
-  maxPrice: "",
-  minBedrooms: "",
-  maxBedrooms: "",
-  dateFrom: "",
-  dateTo: "",
-  postcode: ""
-});
-// insatilzed with a empty array
-const [filteredProperties, setFilteredProperties] = useState([]);
+    type: "any",
+    minPrice: "",
+    maxPrice: "",
+    minBedrooms: "",
+    maxBedrooms: "",
+    dateFrom: null,
+    dateTo: null,
+    postcode: "",
+    location:""
+  });
 
-// empty array to store the Fav Propteries
-const [favourites, setFavourites] = useState([]);
-  
+  const [filteredProperties, setFilteredProperties] = useState([]);
+  const [favourites, setFavourites] = useState([]);
+
   return (
     <>
-       <SearchForm
-      setSearchCriteria={setSearchCriteria}
-      onSearch={handleSearch}
-    />
+    <p>hi</p>
+    <SearchForm setSearchCriteria={setSearchCriteria}></SearchForm>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
