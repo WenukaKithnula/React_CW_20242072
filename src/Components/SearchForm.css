@@ -1,0 +1,29 @@
+.Main-form {
+  border: 2px solid red;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.location-value {
+  border: 2px solid black;
+}
+.flex-container-1 {
+  display: flex;
+  border: 1px solid yellow;
+}
+.flex-container-2 {
+  display: flex;
+  border: 1px solid yellow;
+}
+.property-type {
+  border: 2px solid red;
+}
+.property-date {
+  border: 2px solid pink;
+  display: flex;
+  
+  gap: 12px;
+}
+.property-price,.property-bedroom{
+    display: flex;
+    border: 2px solid green;
+
+}

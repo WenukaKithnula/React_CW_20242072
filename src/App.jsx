@@ -25,7 +25,7 @@ function App() {
   return (
     <>
     <p>hi</p>
-    <SearchForm setSearchCriteria={setSearchCriteria}></SearchForm>
+    <SearchForm setSearchCriteria={setSearchCriteria} searchCriteria={searchCriteria}></SearchForm>
     </>
   );
 }
