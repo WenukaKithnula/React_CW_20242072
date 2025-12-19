@@ -3,10 +3,15 @@ import propertiesData from "./data/properties.json";
 import SearchForm from "./Components/SearchForm";
 import DisplayProp from "./Components/DisplayProp";
 import { Routes, Route } from "react-router-dom";
+import Favorites from "./Components/favorites";
 
 function App() {
   const [properties] = useState(propertiesData.properties);
-  const [favoriteProperties, setFavoriteProperties] = useState([]);
+  const [favoriteProperties, setFavoriteProperties] = useState([
+    "hello",
+    "nigga",
+    "yooo",
+  ]);
   const [searchCriteria, setSearchCriteria] = useState({
     type: "",
     minPrice: "",
@@ -86,16 +91,20 @@ function App() {
     filterProperties(searchCriteria);
   }, [searchCriteria]);
 
+  // ✅ FAVORITES ARRAY LOGIC
 
- // ✅ FAVORITES ARRAY LOGIC
-
- 
   return (
     <Routes>
       <Route
         path="/"
-        element={<SearchForm setSearchCriteria={setSearchCriteria} />}
+        element={
+          <SearchForm
+            setSearchCriteria={setSearchCriteria}
+            favoriteProperties={favoriteProperties}
+          />
+        }
       />
+
       <Route
         path="/results"
         element={<DisplayProp filteredProperties={filteredProperties} />}

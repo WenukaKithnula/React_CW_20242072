@@ -8,7 +8,7 @@ import "./SearchForm.css";
 import { Link } from "react-router-dom";
 import Favorites from "./favorites";
 
-function SearchForm({ setSearchCriteria }) {
+function SearchForm({ setSearchCriteria ,favoriteProperties}  ) {
   const [localType, setLocalType] = useState("any");
   const [localMinPrice, setLocalMinPrice] = useState("");
   const [localMaxPrice, setLocalMaxPrice] = useState("");
@@ -130,7 +130,7 @@ function SearchForm({ setSearchCriteria }) {
         </Link>
       </div>
     </form>
-    <Favorites></Favorites>
+    <Favorites favoriteProperties = {favoriteProperties}  ></Favorites>
     </>
   );
 }

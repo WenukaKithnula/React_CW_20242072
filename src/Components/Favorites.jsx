@@ -1,11 +1,13 @@
-function Favorites(){
+function Favorites({ favoriteProperties }) {
+  return (
+    <div>
+      <h2>Favorites Test</h2>
 
-
-    return(
-        <>
-        <p>The favorites will be displayed here</p>
-        </>
-    )
+      {favoriteProperties.map((item, index) => (
+        <h3 key={index}>{item}</h3>
+      ))}
+    </div>
+  );
 }
 
-export default Favorites
+export default Favorites;
