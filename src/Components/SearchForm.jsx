@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-widgets/styles.css";
 import "./SearchForm.css";
 import { Link } from "react-router-dom";
+import Favorites from "./favorites";
 
 function SearchForm({ setSearchCriteria }) {
   const [localType, setLocalType] = useState("any");
@@ -34,6 +35,7 @@ function SearchForm({ setSearchCriteria }) {
   };
 
   return (
+    <>
     <form className="Main-form" onSubmit={(e) => e.preventDefault()}>
       <h1>Search Properties</h1>
 
@@ -128,6 +130,8 @@ function SearchForm({ setSearchCriteria }) {
         </Link>
       </div>
     </form>
+    <Favorites></Favorites>
+    </>
   );
 }
 

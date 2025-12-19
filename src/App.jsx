@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [properties] = useState(propertiesData.properties);
-
+  const [favoriteProperties, setFavoriteProperties] = useState([]);
   const [searchCriteria, setSearchCriteria] = useState({
     type: "",
     minPrice: "",
@@ -86,6 +86,10 @@ function App() {
     filterProperties(searchCriteria);
   }, [searchCriteria]);
 
+
+ // ✅ FAVORITES ARRAY LOGIC
+
+ 
   return (
     <Routes>
       <Route
@@ -94,7 +98,7 @@ function App() {
       />
       <Route
         path="/results"
-        element={<DisplayProp properties={filteredProperties} />}
+        element={<DisplayProp filteredProperties={filteredProperties} />}
       />
     </Routes>
   );
