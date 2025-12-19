@@ -51,7 +51,7 @@ function SearchForm({ setSearchCriteria }) {
         <div className="property-type">
           <label>Type</label> <br />
           <DropdownList
-            data={["any", "home", "apartment"]}
+            data={["any", "House", "Flat"]}
             value={localType}
             onChange={setLocalType}
           />

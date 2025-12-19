@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import propertiesData from "./data/properties.json";
-import SearchForm from "./Components/SearchForm"; // ✅ CORRECT PATH
+import SearchForm from "./Components/SearchForm";
 import DisplayProp from "./Components/DisplayProp";
 import { Routes, Route } from "react-router-dom";
-
-
 
 function App() {
   const [properties] = useState(propertiesData.properties);
 
   const [searchCriteria, setSearchCriteria] = useState({
-    type: "any",
+    type: "",
     minPrice: "",
     maxPrice: "",
     minBedrooms: "",
@@ -18,23 +16,87 @@ function App() {
     dateFrom: null,
     dateTo: null,
     postcode: "",
-    
   });
 
   const [filteredProperties, setFilteredProperties] = useState([]);
-  const [favourites, setFavourites] = useState([]);
-  //
+
+  // ✅ FILTERING LOGIC
+  const filterProperties = (criteria) => {
+    const results = properties.filter((property) => {
+      /* ---------------- POSTCODE / LOCATION ---------------- */
+      if (
+        criteria.postcode &&
+        !property.location
+          .toLowerCase()
+          .includes(criteria.postcode.toLowerCase())
+      ) {
+        return false;
+      }
+
+      /* ---------------- PROPERTY TYPE ---------------- */
+      if (
+        criteria.type !== "any" &&
+        property.type.toLowerCase() !== criteria.type.toLowerCase()
+      ) {
+        return false;
+      }
+
+      /* ---------------- PRICE RANGE ---------------- */
+      if (criteria.minPrice && property.price < criteria.minPrice) {
+        return false;
+      }
+
+      if (criteria.maxPrice && property.price > criteria.maxPrice) {
+        return false;
+      }
+
+      /* ---------------- BEDROOMS ---------------- */
+      if (criteria.minBedrooms && property.bedrooms < criteria.minBedrooms) {
+        return false;
+      }
+
+      if (criteria.maxBedrooms && property.bedrooms > criteria.maxBedrooms) {
+        return false;
+      }
+
+      /* ---------------- DATE RANGE ---------------- */
+      if (criteria.dateFrom || criteria.dateTo) {
+        const propertyDate = new Date(
+          `${property.added.month} ${property.added.day}, ${property.added.year}`
+        );
+
+        if (criteria.dateFrom && propertyDate < criteria.dateFrom) {
+          return false;
+        }
+
+        if (criteria.dateTo && propertyDate > criteria.dateTo) {
+          return false;
+        }
+      }
+
+      /* ---------------- PASSED ALL CONDITIONS ---------------- */
+      return true;
+    });
+
+    setFilteredProperties(results);
+  };
+
+  // ✅ CALL FILTER WHEN SEARCH CRITERIA CHANGES
+  useEffect(() => {
+    filterProperties(searchCriteria);
+  }, [searchCriteria]);
 
   return (
-    <>
-    <p>hi</p>
     <Routes>
-       <Route path="/" element={<SearchForm setSearchCriteria={setSearchCriteria} />} />
-       <Route path="/results" element={<DisplayProp/>}></Route>
+      <Route
+        path="/"
+        element={<SearchForm setSearchCriteria={setSearchCriteria} />}
+      />
+      <Route
+        path="/results"
+        element={<DisplayProp properties={filteredProperties} />}
+      />
     </Routes>
-    </>
-   
-   
   );
 }
 
