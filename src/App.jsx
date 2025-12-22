@@ -93,6 +93,20 @@ function App() {
 
   // ✅ FAVORITES ARRAY LOGIC
 
+  const addToFavorites = (property) => {
+    setFavoriteProperties((prev) => {
+      const exists = prev.some((f) => f.id === property.id);
+      if (exists) {
+        alert("Already in favorites");
+        return prev;
+      }
+      return [...prev, property];
+    });
+  };
+  const removeFromFavorites = (propertyId) => {
+    setFavoriteProperties((prev) => prev.filter((p) => p.id !== propertyId));
+  };
+
   return (
     <Routes>
       <Route
@@ -107,7 +121,14 @@ function App() {
 
       <Route
         path="/results"
-        element={<DisplayProp filteredProperties={filteredProperties} />}
+        element={
+          <DisplayProp
+            filteredProperties={filteredProperties}
+            favorites={favoriteProperties}
+            addToFavorites={addToFavorites}
+            removeFromFavorites={removeFromFavorites}
+          />
+        }
       />
     </Routes>
   );
