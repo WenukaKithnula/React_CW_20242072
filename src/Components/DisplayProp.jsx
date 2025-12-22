@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import PropCard from "./PropCard";
 
-
-function DisplayProp({ filteredProperties, favorites, addToFavorites, removeFromFavorites }) {
+const DisplayProp = ({
+  filteredProperties,
+  favorites,
+  addToFavorites,
+  removeFromFavorites,
+}) => {
   const [dragOver, setDragOver] = useState(false);
 
-  // Handle drop on the favorites area
   const handleDrop = (e) => {
     e.preventDefault();
     setDragOver(false);
+
     const propertyId = e.dataTransfer.getData("propertyId");
     const property = filteredProperties.find((p) => p.id === propertyId);
 
@@ -19,6 +23,14 @@ function DisplayProp({ filteredProperties, favorites, addToFavorites, removeFrom
     } else {
       addToFavorites(property);
     }
+  };
+
+  const handleremovedrop = (e) => {
+    e.preventDefault();
+    setDragOver(false);
+
+    const propertyId = e.dataTransfer.getData("propertyId");
+    removeFromFavorites(propertyId)
   };
 
   const handleDragOver = (e) => {
@@ -32,10 +44,10 @@ function DisplayProp({ filteredProperties, favorites, addToFavorites, removeFrom
 
   return (
     <div>
-      {/* Properties Gallery */}
+      {/* Properties Grid */}
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {filteredProperties.map((property) => (
-          <PropCard 
+          <PropCard
             key={property.id}
             property={property}
             isFavorite={favorites.some((f) => f.id === property.id)}
@@ -45,9 +57,27 @@ function DisplayProp({ filteredProperties, favorites, addToFavorites, removeFrom
         ))}
       </div>
 
-      {/* Drag & Drop Favorites Area */}
+      {/* Favorites Drag & Drop Area */}
       <div
         onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        style={{
+          marginTop: "20px",
+          marginBottom:"200px",
+          padding: "30px",
+          border: "2px dashed #666",
+          borderRadius: "10px",
+          textAlign: "center",
+          backgroundColor: dragOver ? "#f0f8ff" : "#fafafa",
+        }}
+      >
+        {dragOver
+          ? "Release to add to Favorites"
+          : "Drag properties here to add to Favorites"}
+      </div>
+      <div
+        onDrop={handleremovedrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         style={{
@@ -59,10 +89,29 @@ function DisplayProp({ filteredProperties, favorites, addToFavorites, removeFrom
           backgroundColor: dragOver ? "#f0f8ff" : "#fafafa",
         }}
       >
-        {dragOver ? "Release to add to Favorites" : "Drag properties here to add to Favorites"}
+        {dragOver
+          ? "Release to remove Favorites"
+          : "Drag properties here to remove from Favorites"}
+      </div>
+
+
+      {/* Optional: Display Favorite Cards */}
+      <div style={{ marginTop: "20px" }}>
+        <h3>Favorites</h3>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {favorites.map((property) => (
+            <PropCard
+              key={property.id}
+              property={property}
+              isFavorite={true}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default DisplayProp;

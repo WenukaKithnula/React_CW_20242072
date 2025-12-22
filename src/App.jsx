@@ -7,11 +7,8 @@ import Favorites from "./Components/favorites";
 
 function App() {
   const [properties] = useState(propertiesData.properties);
-  const [favoriteProperties, setFavoriteProperties] = useState([
-    "hello",
-    "nigga",
-    "yooo",
-  ]);
+  const [favoriteProperties, setFavoriteProperties] = useState([]);
+
   const [searchCriteria, setSearchCriteria] = useState({
     type: "",
     minPrice: "",
@@ -112,26 +109,23 @@ function App() {
       <Route
         path="/"
         element={
-          <SearchForm
-            setSearchCriteria={setSearchCriteria}
-            favoriteProperties={favoriteProperties}
-          />
-        }
-      />
-
-      <Route
-        path="/results"
-        element={
-          <DisplayProp
-            filteredProperties={filteredProperties}
-            favorites={favoriteProperties}
-            addToFavorites={addToFavorites}
-            removeFromFavorites={removeFromFavorites}
-          />
+          <>
+            <SearchForm
+              setSearchCriteria={setSearchCriteria}
+              favoriteProperties={favoriteProperties}
+            />
+            <DisplayProp
+              filteredProperties={filteredProperties}
+              favorites={favoriteProperties}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          </>
         }
       />
     </Routes>
   );
 }
+
 
 export default App;

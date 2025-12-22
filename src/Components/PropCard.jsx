@@ -1,38 +1,48 @@
 import React from "react";
 
-function propCard({ property, isFavorite, addToFavorites, removeFromFavorites }) {
+const PropCard = ({ property, isFavorite, addToFavorites, removeFromFavorites }) => {
+  const { type, brand, location, added, images, id } = property;
 
-  const handleFavorite = () => {
+  const firstImage = images?.[0];
+
+  const handleClick = () => {
     if (isFavorite) {
-      removeFromFavorites(property);
+      removeFromFavorites(id);
     } else {
       addToFavorites(property);
     }
   };
 
+  // Drag functionality
+  const handleDragStart = (e) => {
+    e.dataTransfer.setData("propertyId", id);
+  };
+
   return (
-    <div
+    <section
       className="card"
-      draggable
-      onDragStart={(e) => e.dataTransfer.setData("propertyId", property.id)}
-      style={{
-        border: "1px solid #ccc",
-        padding: "10px",
-        margin: "10px",
-        borderRadius: "5px",
-        width: "200px",
-      }}
+      draggable="true"
+      onDragStart={handleDragStart}
+      style={{ border: "1px solid #ccc", margin: "10px", padding: "10px", width: "250px" }}
     >
-      <h3>{property.name}</h3>
-      <p>Price: ${property.price}</p>
-      <p>Type: {property.type}</p>
-      <p>Bedrooms: {property.bedrooms}</p>
+      <div className="image">
+        {firstImage && <img src={firstImage} alt={type} style={{ width: "100%" }} />}
+      </div>
 
-      <button onClick={handleFavorite}>
-        {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
-      </button>
-    </div>
+      <div className="description">
+        <h4>Type: {type}</h4>
+        <h4>Brand: {brand}</h4>
+        <h4>Location: {location}</h4>
+        <h4>
+          Added: {added.month} {added.day}, {added.year}
+        </h4>
+
+        <button onClick={handleClick}>
+          {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+        </button>
+      </div>
+    </section>
   );
-}
+};
 
-export default propCard;
+export default PropCard;
