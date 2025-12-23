@@ -1,10 +1,15 @@
+
+import './PropCard.css';
+
+
+
 function PropCard({
   property,
   isFavorite,
   addToFavorites,
   removeFromFavorites,
 }) {
-  const { id, type, bedrooms, price, description, location, images, added } =
+  const { id, type, bedrooms, price,shortDescription,location, images, added } =
     property;
 
   const thumbnail = images?.[0];
@@ -24,7 +29,7 @@ function PropCard({
 
   return (
     <>
-      <section onDrag={handleDragStart} draggable="true" className="card">
+      <section onDragStart={handleDragStart} draggable="true" className="card">
         <div className="card-body">
           <div className="Thumbnail">
             {thumbnail && <img src={thumbnail} alt={type} />}
@@ -33,11 +38,14 @@ function PropCard({
             <div className="location">{location}</div>
             <div className="property-type">
               <div className="type">{type}</div>
-              <div className="bedrooms">{bedrooms}</div>
+              <div className="bedrooms">
+                <img src="images/Icons/Bed-icon.png" alt="Bed_icon" className="icon" />
+                {bedrooms}
+                </div>
             </div>
-            <div className="description">{description}</div>
+            <div className="description">{shortDescription}</div>
             <div className="price-date">
-              <div className="price">{price}</div>
+              <div className="price"> price :{price}</div>
               <div className="date">
                 Added: {added.month} {added.day}, {added.year}
               </div>

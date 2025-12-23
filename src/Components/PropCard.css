@@ -1,3 +1,54 @@
-.card{
-    border: 2px solid black;
+.card {
+  font-family: sans-serif;
+  border: 2px solid black;
+  margin: 20px;
+}
+.card-body {
+  display: flex;
+}
+.Thumbnail {
+  max-width: 300px;
+}
+.Thumbnail img {
+  width: 100%;
+}
+.property-info {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+}
+.location {
+  border: 1px solid green;
+  padding: 10px;
+}
+.property-type {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 10px;
+}
+.icon {
+  width: 30px;
+}
+.bedrooms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.description {
+  border: 2px solid pink;
+  padding: 10px;
+}
+.price-date {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  padding: 10px;
+  margin-top: auto;
+}
+.card button{
+    padding: 10px;
+    margin: 10px;
+    width: 25%;
+    margin-left: auto;
 }

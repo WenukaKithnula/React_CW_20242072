@@ -45,7 +45,7 @@ const DisplayProp = ({
   return (
     <div>
       {/* Properties Grid */}
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div >
         {filteredProperties.map((property) => (
           <PropCard
             key={property.id}
