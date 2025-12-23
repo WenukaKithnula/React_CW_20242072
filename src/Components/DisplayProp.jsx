@@ -30,7 +30,7 @@ const DisplayProp = ({
     setDragOver(false);
 
     const propertyId = e.dataTransfer.getData("propertyId");
-    removeFromFavorites(propertyId)
+    removeFromFavorites(propertyId);
   };
 
   const handleDragOver = (e) => {
@@ -64,7 +64,7 @@ const DisplayProp = ({
         onDragLeave={handleDragLeave}
         style={{
           marginTop: "20px",
-          marginBottom:"200px",
+          marginBottom: "200px",
           padding: "30px",
           border: "2px dashed #666",
           borderRadius: "10px",
@@ -93,7 +93,6 @@ const DisplayProp = ({
           ? "Release to remove Favorites"
           : "Drag properties here to remove from Favorites"}
       </div>
-
 
       {/* Optional: Display Favorite Cards */}
       <div style={{ marginTop: "20px" }}>

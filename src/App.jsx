@@ -112,7 +112,7 @@ function App() {
           <>
             <SearchForm
               setSearchCriteria={setSearchCriteria}
-              favoriteProperties={favoriteProperties}
+              
             />
             <DisplayProp
               filteredProperties={filteredProperties}
