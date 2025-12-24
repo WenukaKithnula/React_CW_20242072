@@ -1,70 +1,49 @@
 .gallery {
   display: flex;
   gap: 20px;
-  height: calc(100vh - 20px); /* full viewport height minus some padding */
   padding: 10px;
-  box-sizing: border-box;
+  border: 2px solid black;
 }
 
-/* LEFT: Filtered results */
+/* LEFT */
 .filtered-property {
-  flex: 3;
+  flex: 4;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   border: 2px solid red;
-  overflow-y: auto;  /* scroll only if content overflows */
-  padding: 10px;
+  
+  align-self: flex-start;
 }
 
-/* MIDDLE: Drag & drop buttons */
+/* MIDDLE – STICKY */
 .drag-drop {
-  flex: 0 0 120px; /* fixed width */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: sticky;  /* sticky inside gallery */
-  top: 50%;          /* middle of viewport */
-  transform: translateY(-50%);
-  align-items: center;
-  border: 2px solid black;
+  position: sticky;
+  top: 20px;               /* sticks 20px from top of gallery */
+   /* REQUIRED for flex layouts */
+  border: 2px solid brown;
   padding: 10px;
-  height: max-content;
+  width: 140px;
+  height: fit-content;
 }
 
 /* DRAG BUTTONS */
-.add-fav, .remove-fav {
-  width: 100%;
-  padding: 10px;
+.add-fav,
+.remove-fav {
+  border: 2px solid black;
+  padding: 40px 10px;
   text-align: center;
-  border: 1px solid #333;
+  margin-bottom: 20px;
   cursor: pointer;
-  background-color: #f1f1f1;
 }
 
-.add-fav:hover, .remove-fav:hover {
-  background-color: #ddd;
-}
-
-/* RIGHT: Favorites list */
+/* RIGHT */
 .fav-property-display {
   flex: 2;
-  border: 2px solid blue;
-  padding: 10px;
-  overflow-y: auto;  /* scrollable */
-  max-height: 100%;  /* don’t exceed viewport height */
-}
-/* For left results */
-.filtered-property,
-.fav-property-display {
-  overflow-y: auto;
-
-  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* IE 10+ */
-}
-
-.filtered-property::-webkit-scrollbar,
-.fav-property-display::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid green;
 }

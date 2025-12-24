@@ -57,6 +57,19 @@ function DisplayProp({
         ))}
       </div>
 
+      <div className="fav-property-display">
+          <h3>Fvarotes dipslay</h3>
+          {favoriteProperties.map((property) => (
+            <PropCard
+              key={property.id}
+              property={property}
+              isFavorite={true}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          ))}
+        </div>
+
       {/* FAVOURITES DRAG & DROP */}
       
         <div className="drag-drop">
@@ -79,23 +92,12 @@ function DisplayProp({
           >
             {dragOver
               ? "Release to remove Favorites"
-              : "Drag  remove from Favorites"}
+              : <p>hii</p>}
           </div>
         </div>
 
         {/* FAVOURITES LIST */}
-        <div className="fav-property-display">
-          <h3>Fvarotes dipslay</h3>
-          {favoriteProperties.map((property) => (
-            <PropCard
-              key={property.id}
-              property={property}
-              isFavorite={true}
-              addToFavorites={addToFavorites}
-              removeFromFavorites={removeFromFavorites}
-            />
-          ))}
-        </div>
+       
       </div>
     
   );
