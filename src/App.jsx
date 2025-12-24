@@ -4,6 +4,7 @@ import SearchForm from "./Components/SearchForm";
 import DisplayProp from "./Components/DisplayProp";
 import { Routes, Route } from "react-router-dom";
 import Favorites from "./Components/favorites";
+import PropertyDetails from "./Components/PropertyDetails";
 
 function App() {
   const [properties] = useState(propertiesData.properties);
@@ -110,10 +111,7 @@ function App() {
         path="/"
         element={
           <>
-            <SearchForm
-              setSearchCriteria={setSearchCriteria}
-              
-            />
+            <SearchForm setSearchCriteria={setSearchCriteria} />
             <DisplayProp
               filteredProperties={filteredProperties}
               favoriteProperties={favoriteProperties}
@@ -123,9 +121,18 @@ function App() {
           </>
         }
       />
+      <Route
+        path="/property/:id"
+        element={
+          <PropertyDetails
+            addToFavorites={addToFavorites}
+            removeFromFavorites={removeFromFavorites}
+            favoriteProperties={favoriteProperties}
+          />
+        }
+      />
     </Routes>
   );
 }
-
 
 export default App;
