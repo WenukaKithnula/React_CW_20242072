@@ -116,7 +116,7 @@ function App() {
             />
             <DisplayProp
               filteredProperties={filteredProperties}
-              favorites={favoriteProperties}
+              favoriteProperties={favoriteProperties}
               addToFavorites={addToFavorites}
               removeFromFavorites={removeFromFavorites}
             />

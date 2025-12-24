@@ -32,7 +32,7 @@ function PropCard({
       <section onDragStart={handleDragStart} draggable="true" className="card">
         <div className="card-body">
           <div className="Thumbnail">
-            {thumbnail && <img src={thumbnail} alt={type} />}
+            {thumbnail && <img src={thumbnail} alt={type} className="property-image"/>}
           </div>
           <div className="property-info">
             <div className="location">{location}</div>
@@ -50,7 +50,10 @@ function PropCard({
                 Added: {added.month} {added.day}, {added.year}
               </div>
             </div>
-            <button onClick={handlClick}>
+            <button className="view-more-btn">
+              view more details
+            </button>
+            <button onClick={handlClick} className="add-to-fav-btn">
               {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
             </button>
           </div>

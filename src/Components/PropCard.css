@@ -1,54 +1,136 @@
+/* Card container */
 .card {
-  font-family: sans-serif;
-  border: 2px solid black;
-  margin: 20px;
+  width: 320px;
+  min-height: 440px;
+  background: #59060646;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid yellow;
+  padding: 5px;
+  margin: 10px;
 }
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Card body */
 .card-body {
   display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
+/* Image */
 .Thumbnail {
-  max-width: 300px;
-}
-.Thumbnail img {
   width: 100%;
+  height: 180px;
+  overflow: hidden;
 }
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info section */
 .property-info {
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
+  padding: 14px;
+  flex-grow: 1;
 }
+
+/* Location */
 .location {
-  border: 1px solid green;
-  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 6px;
 }
+
+/* Type & bedrooms */
 .property-type {
   display: flex;
   align-items: center;
-  gap: 50px;
-  padding: 10px;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
-.icon {
-  width: 30px;
+
+.type {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size:15px;
+  color: #0077cc;
 }
+
 .bedrooms {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
+  font-size:20px;
 }
+
+.icon {
+  width: 25px;
+}
+
+/* Description */
 .description {
-  border: 2px solid pink;
-  padding: 10px;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
+
+/* Price & date */
 .price-date {
   display: flex;
   justify-content: space-between;
-  border: 2px solid black;
-  padding: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
   margin-top: auto;
+  margin-bottom: 10px;
 }
-.card button{
-    padding: 10px;
-    margin: 10px;
-    width: 25%;
-    margin-left: auto;
+
+.price {
+  color: #1a7f37;
+}
+
+.date {
+  color: #777;
+}
+
+/* Buttons */
+.view-more-btn {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  
+}
+
+.view-more-btn{
+  background: #f1f1f1;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.view-more-btn:hover {
+  background: #e2e2e2;
+}
+
+.add-to-fav-btn {
+  background: #0077cc;
+  color: white;
+}
+
+.add-to-fav-btn:hover {
+  background: #005fa3;
 }

@@ -1,0 +1,70 @@
+.gallery {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 20px); /* full viewport height minus some padding */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* LEFT: Filtered results */
+.filtered-property {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 2px solid red;
+  overflow-y: auto;  /* scroll only if content overflows */
+  padding: 10px;
+}
+
+/* MIDDLE: Drag & drop buttons */
+.drag-drop {
+  flex: 0 0 120px; /* fixed width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;  /* sticky inside gallery */
+  top: 50%;          /* middle of viewport */
+  transform: translateY(-50%);
+  align-items: center;
+  border: 2px solid black;
+  padding: 10px;
+  height: max-content;
+}
+
+/* DRAG BUTTONS */
+.add-fav, .remove-fav {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #333;
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
+
+.add-fav:hover, .remove-fav:hover {
+  background-color: #ddd;
+}
+
+/* RIGHT: Favorites list */
+.fav-property-display {
+  flex: 2;
+  border: 2px solid blue;
+  padding: 10px;
+  overflow-y: auto;  /* scrollable */
+  max-height: 100%;  /* don’t exceed viewport height */
+}
+/* For left results */
+.filtered-property,
+.fav-property-display {
+  overflow-y: auto;
+
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+.filtered-property::-webkit-scrollbar,
+.fav-property-display::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

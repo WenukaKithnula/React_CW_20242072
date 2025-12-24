@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropCard from "./PropCard";
+import "./DisplayProp.css";
 
-const DisplayProp = ({
+
+function DisplayProp({
   filteredProperties,
-  favorites,
   addToFavorites,
   removeFromFavorites,
-}) => {
+  favoriteProperties,
+}) {
   const [dragOver, setDragOver] = useState(false);
 
   const handleDrop = (e) => {
@@ -16,16 +18,12 @@ const DisplayProp = ({
     const propertyId = e.dataTransfer.getData("propertyId");
     const property = filteredProperties.find((p) => p.id === propertyId);
 
-    if (!property) return;
-
-    if (favorites.some((f) => f.id === property.id)) {
-      alert("This property is already in favorites!");
-    } else {
+    if (property) {
       addToFavorites(property);
     }
   };
 
-  const handleremovedrop = (e) => {
+  const handleRemoveDrop = (e) => {
     e.preventDefault();
     setDragOver(false);
 
@@ -43,62 +41,52 @@ const DisplayProp = ({
   };
 
   return (
-    <div>
-      {/* Properties Grid */}
-      <div >
+    <div className="gallery">
+      {/* FILTERED PROPERTIES */}
+      <div className="filtered-property" >
         {filteredProperties.map((property) => (
           <PropCard
             key={property.id}
             property={property}
-            isFavorite={favorites.some((f) => f.id === property.id)}
+            isFavorite={favoriteProperties.some(
+              (f) => f.id === property.id
+            )}
             addToFavorites={addToFavorites}
             removeFromFavorites={removeFromFavorites}
           />
         ))}
       </div>
 
-      {/* Favorites Drag & Drop Area */}
-      <div
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        style={{
-          marginTop: "20px",
-          marginBottom: "200px",
-          padding: "30px",
-          border: "2px dashed #666",
-          borderRadius: "10px",
-          textAlign: "center",
-          backgroundColor: dragOver ? "#f0f8ff" : "#fafafa",
-        }}
-      >
-        {dragOver
-          ? "Release to add to Favorites"
-          : "Drag properties here to add to Favorites"}
-      </div>
-      <div
-        onDrop={handleremovedrop}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        style={{
-          marginTop: "20px",
-          padding: "30px",
-          border: "2px dashed #666",
-          borderRadius: "10px",
-          textAlign: "center",
-          backgroundColor: dragOver ? "#f0f8ff" : "#fafafa",
-        }}
-      >
-        {dragOver
-          ? "Release to remove Favorites"
-          : "Drag properties here to remove from Favorites"}
-      </div>
+      {/* FAVOURITES DRAG & DROP */}
+      
+        <div className="drag-drop">
+          <div
+            className="add-fav"
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+          >
+            {dragOver
+              ? "Release to add to Favorites"
+              : "Drag  add to Favorites"}
+          </div>
 
-      {/* Optional: Display Favorite Cards */}
-      <div style={{ marginTop: "20px" }}>
-        <h3>Favorites</h3>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {favorites.map((property) => (
+          <div
+            className="remove-fav"
+            onDrop={handleRemoveDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+          >
+            {dragOver
+              ? "Release to remove Favorites"
+              : "Drag  remove from Favorites"}
+          </div>
+        </div>
+
+        {/* FAVOURITES LIST */}
+        <div className="fav-property-display">
+          <h3>Fvarotes dipslay</h3>
+          {favoriteProperties.map((property) => (
             <PropCard
               key={property.id}
               property={property}
@@ -109,8 +97,8 @@ const DisplayProp = ({
           ))}
         </div>
       </div>
-    </div>
+    
   );
-};
+}
 
 export default DisplayProp;

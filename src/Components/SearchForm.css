@@ -13,8 +13,15 @@
   display: flex;
   border: 1px solid yellow;
 }
+.flex-container-1,
+.flex-container-2 {
+  display: flex;
+  flex-wrap: wrap; /* allow children to move to next line */
+  gap: 12px; /* spacing between children */
+}
+
 .property-type {
-  border: 2px solid red;
+  
 }
 .property-date {
   border: 2px solid pink;
