@@ -91,6 +91,7 @@ function App() {
 
   // ✅ FAVORITES ARRAY LOGIC
 
+
   const addToFavorites = (property) => {
     setFavoriteProperties((prev) => {
       const exists = prev.some((f) => f.id === property.id);
@@ -104,6 +105,9 @@ function App() {
   const removeFromFavorites = (propertyId) => {
     setFavoriteProperties((prev) => prev.filter((p) => p.id !== propertyId));
   };
+  const clearFavorites = ()=>{
+    setFavoriteProperties([])
+  }
 
   return (
     <Routes>
@@ -117,6 +121,8 @@ function App() {
               favoriteProperties={favoriteProperties}
               addToFavorites={addToFavorites}
               removeFromFavorites={removeFromFavorites}
+              clearFavorites = {clearFavorites}
+
             />
           </>
         }

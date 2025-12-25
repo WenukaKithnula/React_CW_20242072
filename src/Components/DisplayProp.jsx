@@ -8,6 +8,7 @@ function DisplayProp({
   addToFavorites,
   removeFromFavorites,
   favoriteProperties,
+  clearFavorites
 }) {
   const [dragOver, setDragOver] = useState(false);
 
@@ -59,6 +60,7 @@ function DisplayProp({
 
       <div className="fav-property-display">
           <h3>Fvarotes dipslay</h3>
+          <button onClick={clearFavorites}>clear favorites</button>
           {favoriteProperties.map((property) => (
             <PropCard
               key={property.id}
