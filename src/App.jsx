@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import propertiesData from "./data/properties.json";
+
 import SearchForm from "./Components/SearchForm";
 import DisplayProp from "./Components/DisplayProp";
 import { Routes, Route } from "react-router-dom";
@@ -7,7 +7,8 @@ import Favorites from "./Components/favorites";
 import PropertyDetails from "./Components/PropertyDetails";
 
 function App() {
-  const [properties] = useState(propertiesData.properties);
+  const [properties, setProperties] = useState([]);
+
   const [favoriteProperties, setFavoriteProperties] = useState([]);
 
   const [searchCriteria, setSearchCriteria] = useState({
@@ -22,6 +23,17 @@ function App() {
   });
 
   const [filteredProperties, setFilteredProperties] = useState([]);
+
+  useEffect(() => {
+  fetch("/data/properties.json")
+    .then((res) => res.json())
+    .then((data) => {
+      setProperties(data.properties);
+      setFilteredProperties(data.properties); // optional: show all initially
+    })
+    .catch((err) => console.error("Error loading properties:", err));
+}, []);
+
 
   // ✅ FILTERING LOGIC
   const filterProperties = (criteria) => {
@@ -131,6 +143,7 @@ function App() {
         path="/property/:id"
         element={
           <PropertyDetails
+          properties={properties} 
             addToFavorites={addToFavorites}
             removeFromFavorites={removeFromFavorites}
             favoriteProperties={favoriteProperties}
