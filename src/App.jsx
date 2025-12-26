@@ -146,7 +146,7 @@ function App() {
           properties={properties} 
             addToFavorites={addToFavorites}
             removeFromFavorites={removeFromFavorites}
-            favoriteProperties={favoriteProperties}
+            
           />
         }
       />

@@ -111,7 +111,7 @@
       "description": "Charming two-bedroom cottage with open-plan kitchen/living area, modern bathroom, and private garden. Ideal for couples or small families looking for a quiet location.",
       "shortDescription": "Two-bedroom cottage with open-plan living and private garden, perfect for small families.",
       "location": "Elm Road, Orpington BR5",
-      "images": ["images/prop1/property_image.webp"],
+      "images": ["/images/prop1/property_image.webp","/images/prop1/property_image.webp","images/prop1/property_image.webp","images/prop1/property_image.webp","images/prop1/property_image.webp","images/prop1/property_image.webp"],
       "url": "properties/prop7.html",
       "added": {
         "month": "April",
