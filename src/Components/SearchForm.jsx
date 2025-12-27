@@ -127,6 +127,7 @@ function SearchForm({ setSearchCriteria }) {
           <button onClick={handleSearchClick}>Search</button>
         </div>
       </form>
+      
     </>
   );
 }

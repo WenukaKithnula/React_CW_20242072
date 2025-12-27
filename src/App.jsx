@@ -140,7 +140,7 @@ function App() {
         }
       />
       <Route
-        path="/property/:id"
+        path="/properties/:id.html"
         element={
           <PropertyDetails
           properties={properties} 

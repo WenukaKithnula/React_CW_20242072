@@ -1,0 +1,77 @@
+.property-images{
+    width: 75%;
+    margin-inline: auto;
+    border: 2px solid red;
+    padding: 20px;
+    background-color: rgba(245, 241, 236, 0.044);
+}
+.image-gallery-slide img {
+  
+  object-fit: cover;   /* keeps it neat */
+  border: 2px solid rgb(28, 4, 8);
+}
+.parent-container{
+    
+}
+.back-btn-div{
+    display: flex;
+    justify-content: start;
+    margin-left: 20px;
+}
+.back-btn{
+    padding: 15px;
+    display: block;
+
+}
+.property-location{
+    margin-left: 30px;
+    margin: 20px;
+    font-size: 40px;
+}
+.propertyDetails-info{
+    border: 2px solid red;
+    width: 75%;
+    margin-inline: auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+.add-date{
+    border: 2px solid black;
+}
+.tab-list{
+    background-color: pink;
+}
+.react-tabs__tab--selected {
+  background-color: #ff8400;
+  color: white;
+  font-weight: bold;
+  border: 2px solid red;
+  border-bottom: none;
+}
+.long-description{
+    border: 2px solid green;
+}
+.react-tabs__tab-panel {
+  
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 5px;
+  background-color: #fff;
+}
+.bedroom-count{
+    border: 2px solid red;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.property-info-icon{
+    width: 4%;
+}
+.room-count{
+    font-size: 20px;
+}
+.mini-descripstion{
+    border: 2px solid brown;
+}
+.tab-section{
+    margin-top: 30px;
+}

@@ -15,7 +15,8 @@
         "month": "October",
         "day": 12,
         "year": 2022
-      }
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19874!2d0.061!3d51.393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608c7b5!2sPetts%20Wood%20Station!5e0!3m2!1sen!2suk!4v0000000000"
     },
     {
       "id": "prop2",
@@ -23,7 +24,7 @@
       "bedrooms": 2,
       "price": 399995,
       "tenure": "Freehold",
-      "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+      "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms. This apartment being only five years old, is still under a 10 year building guarantee...",
       "shortDescription": "Two-bedroom garden flat with modern open-plan kitchen/living area and private courtyard garden.",
       "location": "Crofton Road Orpington BR6",
       "images": ["images/prop1/property_image.webp"],
@@ -32,7 +33,8 @@
         "month": "September",
         "day": 14,
         "year": 2022
-      }
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19874!2d0.050!3d51.391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608d4!2sCrofton%20Road!5e0!3m2!1sen!2suk!4v0000000000"
     },
     {
       "id": "prop3",
@@ -40,16 +42,17 @@
       "bedrooms": 4,
       "price": 950000,
       "tenure": "Freehold",
-      "description": "Spacious four-bedroom detached house with large garden and double garage. Open plan kitchen/dining area, two reception rooms, modern family bathroom, en-suite to master. Close to local schools and transport links.",
+      "description": "Spacious four-bedroom detached house with a large landscaped garden and double garage. The ground floor features a generous open-plan kitchen and dining area, two reception rooms with ample natural light, and a utility room with cloakroom. Upstairs, the master bedroom benefits from an en-suite bathroom and built-in wardrobes, while the remaining three bedrooms are serviced by a modern family bathroom. The property also offers double glazing, gas central heating, and high-quality finishes throughout. Conveniently located near local schools, shops, and transport links.",
       "shortDescription": "Four-bedroom detached house with garden, garage, and modern interiors, close to schools.",
-      "location": "Maple Avenue, Bromley BR2",
+      "location": "Maple Avenue, Bromley, Orpington BR2 ",
       "images": ["images/prop1/property_image.webp"],
       "url": "properties/prop3.html",
       "added": {
         "month": "August",
         "day": 20,
         "year": 2022
-      }
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19874!2d0.025!3d51.395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487609a2!2sMaple%20Avenue%2C%20Bromley!5e0!3m2!1sen!2suk!4v0000000000"
     },
     {
       "id": "prop4",
@@ -57,16 +60,17 @@
       "bedrooms": 1,
       "price": 275000,
       "tenure": "Leasehold",
-      "description": "Modern one-bedroom flat with open-plan kitchen and living area, contemporary bathroom, and balcony overlooking the communal garden. Ideal for first-time buyers or investors.",
+      "description": "Modern one-bedroom flat with a bright open-plan kitchen and living area, contemporary bathroom, and a balcony overlooking the communal garden. This property is perfect for first-time buyers or investors, offering a low-maintenance lifestyle in a quiet neighborhood. Features include fitted appliances, hardwood floors, ample storage, and double-glazed windows. The building has secure entry and is conveniently located near public transport, shops, and local amenities.",
       "shortDescription": "Modern one-bedroom flat with balcony and open-plan living, perfect for first-time buyers.",
-      "location": "High Street, Orpington BR6",
+     "location": "High Street, Orpington, Kent BR6 ",
       "images": ["images/prop1/property_image.webp"],
       "url": "properties/prop4.html",
       "added": {
         "month": "July",
         "day": 10,
         "year": 2022
-      }
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19874!2d0.052!3d51.392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608d1!2sHigh%20Street%2C%20Orpington!5e0!3m2!1sen!2suk!4v0000000000"
     },
     {
       "id": "prop5",
@@ -74,16 +78,17 @@
       "bedrooms": 5,
       "price": 1200000,
       "tenure": "Freehold",
-      "description": "Elegant five-bedroom family home with large reception rooms, fitted kitchen, study, and landscaped garden. Includes garage and off-street parking. Located near top-rated schools and amenities.",
+      "description": "Elegant five-bedroom family home with spacious reception rooms, a fitted kitchen with modern appliances, a study, and a landscaped rear garden. Includes a garage and off-street parking. The master bedroom benefits from an en-suite bathroom and walk-in closet, while additional bedrooms are bright and generously sized. Ideal for families seeking a comfortable, stylish home close to schools, parks, and local amenities. The property features high-quality finishes, double glazing, and central heating throughout.",
       "shortDescription": "Five-bedroom family home with study, landscaped garden, and garage near top schools.",
-      "location": "Kingsway, Orpington BR5",
+       "location": "Kingsway, Orpington, Kent BR5 ",
       "images": ["images/prop1/property_image.webp"],
       "url": "properties/prop5.html",
       "added": {
         "month": "June",
         "day": 5,
         "year": 2022
-      }
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19874!2d0.049!3d51.389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608c9!2sKingsway%2C%20Orpington!5e0!3m2!1sen!2suk!4v0000000000"
     },
     {
       "id": "prop6",
@@ -91,16 +96,17 @@
       "bedrooms": 3,
       "price": 650000,
       "tenure": "Leasehold",
-      "description": "Three-bedroom penthouse flat with spacious living areas, modern kitchen, two bathrooms, and private terrace. Excellent transport links and close to local amenities.",
+      "description": "Three-bedroom penthouse flat with spacious living areas, modern kitchen, two bathrooms, and a private terrace offering panoramic views. Features include high-end finishes, built-in appliances, ample storage, and hardwood floors. Excellent transport links make commuting easy, and nearby amenities include shops, restaurants, and parks. Perfect for professionals or families seeking a stylish and convenient home in a desirable location.",
       "shortDescription": "Three-bedroom penthouse with private terrace, modern kitchen, and great transport links.",
-      "location": "Station Road, Orpington BR6",
+       "location": "Station Road, Orpington, Kent BR6 8PQ",
       "images": ["images/prop1/property_image.webp"],
       "url": "properties/prop6.html",
       "added": {
         "month": "May",
         "day": 22,
         "year": 2022
-      }
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19874!2d0.053!3d51.393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608c2!2sStation%20Road%2C%20Orpington!5e0!3m2!1sen!2suk!4v0000000000"
     },
     {
       "id": "prop7",
@@ -108,16 +114,17 @@
       "bedrooms": 2,
       "price": 425000,
       "tenure": "Freehold",
-      "description": "Charming two-bedroom cottage with open-plan kitchen/living area, modern bathroom, and private garden. Ideal for couples or small families looking for a quiet location.",
+      "description": "Charming two-bedroom cottage with open-plan kitchen/living area, modern bathroom, and a private garden. This property is ideal for couples or small families seeking a quiet location with easy access to local schools, parks, and transport. Features include exposed beams, a cozy fireplace, double-glazing, and a well-maintained interior. The garden offers space for outdoor activities and relaxation, while the property benefits from off-street parking and nearby amenities. Perfect blend of character and modern comfort.",
       "shortDescription": "Two-bedroom cottage with open-plan living and private garden, perfect for small families.",
-      "location": "Elm Road, Orpington BR5",
-      "images": ["/images/prop1/property_image.webp","/images/prop1/property_image.webp","images/prop1/property_image.webp","images/prop1/property_image.webp","images/prop1/property_image.webp","images/prop1/property_image.webp"],
+      "location": "Elm Road, Orpington, Kent BR5 4LT",
+      "images": ["/images/prop1/property_image.webp","/images/prop1/property_image.webp","/images/prop1/property_image.webp","/images/prop1/property_image.webp","/images/prop1/property_image.webp","/images/prop1/property_image.webp"],
       "url": "properties/prop7.html",
       "added": {
         "month": "April",
         "day": 15,
         "year": 2022
-      }
+      },
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19874!2d0.048!3d51.388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608b7!2sElm%20Road%2C%20Orpington!5e0!3m2!1sen!2suk!4v0000000000"
     }
   ]
 }

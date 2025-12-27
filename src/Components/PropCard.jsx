@@ -7,7 +7,7 @@ function PropCard({
   addToFavorites,
   removeFromFavorites,
 }) {
-  const { id, type, bedrooms, price, shortDescription, location, images, added } = property;
+  const { id, type, bedrooms, price, shortDescription, location, images, added,url } = property;
 
   const thumbnail = images?.[0];
 
@@ -48,7 +48,7 @@ function PropCard({
           </div>
           
           {/* View Details Link */}
-          <Link to={`/property/${id}`} className="view-more-btn">
+          <Link to={url} className="view-more-btn">
             View More Details
           </Link>
 
