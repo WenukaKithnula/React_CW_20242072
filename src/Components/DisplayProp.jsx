@@ -94,7 +94,7 @@ function DisplayProp({
           >
             {dragOver
               ? "Release to remove Favorites"
-              : <p>hii</p>}
+              : <p>Release to remove Favorites</p>}
           </div>
         </div>
 

@@ -1,36 +1,161 @@
+/* Main Form Wrapper */
 .Main-form {
   border: 2px solid red;
   font-family: Arial, Helvetica, sans-serif;
-}
-.location-value {
-  border: 2px solid black;
-}
-.flex-container-1 {
-  display: flex;
-  border: 1px solid yellow;
-}
-.flex-container-2 {
-  display: flex;
-  border: 1px solid yellow;
-}
-.flex-container-1,
-.flex-container-2 {
-  display: flex;
-  flex-wrap: wrap; /* allow children to move to next line */
-  gap: 12px; /* spacing between children */
+  padding: 20px;
 }
 
-.property-type {
-  
+/* Container for search form */
+.search-container {
+  width: 80%;
+  border: 2px solid red;
+  margin-inline: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  box-sizing: border-box;
 }
+
+/* Location Input */
+.location-value {
+  border: 2px solid black;
+  padding: 10px;
+  width: 250px;
+}
+
+/* Flex container row 1 */
+.flex-container-1 {
+  display: flex;
+  border: 1px solid rgb(15, 15, 10);
+  margin: 20px 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Flex container row 2 */
+.flex-container-2 {
+  display: flex;
+  border: 1px solid yellow;
+  margin: 20px 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Property Type Dropdown */
+.property-type-search {
+  width: 250px;
+  border: 2px solid red;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Property Date Pickers */
 .property-date {
   border: 2px solid pink;
   display: flex;
-  
   gap: 12px;
+  flex-wrap: wrap;
 }
-.property-price,.property-bedroom{
-    display: flex;
-    border: 2px solid green;
 
+.property-date > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Property Price Inputs */
+.property-price,
+.property-bedroom {
+  display: flex;
+  border: 2px solid green;
+  gap: 12px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.property-price > div,
+.property-bedroom > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Labels */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* React Widgets Styling */
+.rw-widget .rw-input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+/* DatePicker Styling */
+.react-datepicker-wrapper input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+/* Search Button */
+.Search-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.Search-btn button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Search-btn button:hover {
+  background-color: #ddd;
+}
+.input-location{
+  width:  100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+ 
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .flex-container-1,
+  .flex-container-2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .property-type-search,
+  .location-value,
+  .property-date > div,
+  .property-price > div,
+  .property-bedroom > div {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .rw-widget .rw-input,
+  .react-datepicker-wrapper input {
+    width: 100%;
+  }
 }

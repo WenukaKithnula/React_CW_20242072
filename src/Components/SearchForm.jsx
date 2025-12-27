@@ -5,74 +5,81 @@ import { DropdownList, NumberPicker } from "react-widgets";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-widgets/styles.css";
 import "./SearchForm.css";
-import { Link } from "react-router-dom";
-import Favorites from "./favorites";
 
 function SearchForm({ setSearchCriteria }) {
-  const [localType, setLocalType] = useState("any");
-  const [localMinPrice, setLocalMinPrice] = useState("");
-  const [localMaxPrice, setLocalMaxPrice] = useState("");
-  const [localDateFrom, setLocalDateFrom] = useState(null);
-  const [localDateTo, setLocalDateTo] = useState(null);
-  const [localPostcode, setLocalPostcode] = useState("");
+  const [formValues, setFormValues] = useState({
+    type: "any",
+    minPrice: "",
+    maxPrice: "",
+    minBedrooms: "",
+    maxBedrooms: "",
+    dateFrom: null,
+    dateTo: null,
+    postcode: "",
+  });
 
-  const [localMinBedrooms, setLocalMinBedrooms] = useState("");
-  const [localMaxBedrooms, setLocalMaxBedrooms] = useState("");
+  const bedroomOptions = ["no min", 1, 2, 3, 4, 5];
+  const maxBedroomOptions = ["no max", 1, 2, 3, 4, 5];
 
   const handleSearchClick = () => {
-    //Created a function to assign the local varibles values to the global usestate objcet
-    setSearchCriteria({
-      type: localType,
-      minPrice: localMinPrice,
-      maxPrice: localMaxPrice,
-      minBedrooms: localMinBedrooms,
-      maxBedrooms: localMaxBedrooms,
-      dateFrom: localDateFrom,
-      dateTo: localDateTo,
-      postcode: localPostcode,
-    });
+    setSearchCriteria(formValues);
   };
 
   return (
-    <>
-      <form className="Main-form" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="Main-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSearchClick();
+      }}
+    >
+      <div className="search-container">
         <h1>Search Properties</h1>
 
         <div className="flex-container-1">
           <div className="location-value">
-            <label>Search Location</label> <br />
+            <label>Search Location</label>
             <input
+            className="input-location"
               type="text"
-              value={localPostcode}
-              onChange={(e) => setLocalPostcode(e.target.value)}
+              value={formValues.postcode}
+              onChange={(e) =>
+                setFormValues({ ...formValues, postcode: e.target.value })
+              }
               placeholder="Enter Location"
             />
           </div>
 
-          <div className="property-type">
-            <label>Type</label> <br />
+          <div className="property-type-search">
+            <label>Type</label>
             <DropdownList
               data={["any", "House", "Flat"]}
-              value={localType}
-              onChange={setLocalType}
+              value={formValues.type}
+              onChange={(val) =>
+                setFormValues({ ...formValues, type: val })
+              }
             />
           </div>
 
           <div className="property-date">
-            <div>
-              <label>Date From</label> <br />
+            <div className="from">
+              <label>Date From</label>
               <DatePicker
-                selected={localDateFrom}
-                onChange={setLocalDateFrom}
+                selected={formValues.dateFrom}
+                onChange={(date) =>
+                  setFormValues({ ...formValues, dateFrom: date })
+                }
                 placeholderText="Start date"
               />
             </div>
 
-            <div>
-              <label>Date To</label> <br />
+            <div className="to">
+              <label>Date To</label>
               <DatePicker
-                selected={localDateTo}
-                onChange={setLocalDateTo}
+                selected={formValues.dateTo}
+                onChange={(date) =>
+                  setFormValues({ ...formValues, dateTo: date })
+                }
                 placeholderText="End date"
               />
             </div>
@@ -84,8 +91,10 @@ function SearchForm({ setSearchCriteria }) {
             <div>
               <label>Min Price</label>
               <NumberPicker
-                value={localMinPrice}
-                onChange={setLocalMinPrice}
+                value={formValues.minPrice}
+                onChange={(val) =>
+                  setFormValues({ ...formValues, minPrice: val })
+                }
                 min={0}
               />
             </div>
@@ -93,8 +102,10 @@ function SearchForm({ setSearchCriteria }) {
             <div>
               <label>Max Price</label>
               <NumberPicker
-                value={localMaxPrice}
-                onChange={setLocalMaxPrice}
+                value={formValues.maxPrice}
+                onChange={(val) =>
+                  setFormValues({ ...formValues, maxPrice: val })
+                }
                 min={0}
               />
             </div>
@@ -104,31 +115,32 @@ function SearchForm({ setSearchCriteria }) {
             <div>
               <label>Min Rooms</label>
               <DropdownList
-                data={["no min", 1, 2, 3, 4, 5]}
-                value={localMinBedrooms}
-                onChange={setLocalMinBedrooms}
-                placeholder="NO min"
+                data={bedroomOptions}
+                value={formValues.minBedrooms}
+                onChange={(val) =>
+                  setFormValues({ ...formValues, minBedrooms: val })
+                }
               />
             </div>
 
             <div>
               <label>Max Rooms</label>
               <DropdownList
-                data={["no max", 1, 2, 3, 4, 5]}
-                value={localMaxBedrooms}
-                onChange={setLocalMaxBedrooms}
-                placeholder="NO max"
+                data={maxBedroomOptions}
+                value={formValues.maxBedrooms}
+                onChange={(val) =>
+                  setFormValues({ ...formValues, maxBedrooms: val })
+                }
               />
             </div>
           </div>
         </div>
 
         <div className="Search-btn">
-          <button onClick={handleSearchClick}>Search</button>
+          <button type="submit">Search</button>
         </div>
-      </form>
-      
-    </>
+      </div>
+    </form>
   );
 }
 

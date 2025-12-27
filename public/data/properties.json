@@ -99,7 +99,7 @@
       "description": "Three-bedroom penthouse flat with spacious living areas, modern kitchen, two bathrooms, and a private terrace offering panoramic views. Features include high-end finishes, built-in appliances, ample storage, and hardwood floors. Excellent transport links make commuting easy, and nearby amenities include shops, restaurants, and parks. Perfect for professionals or families seeking a stylish and convenient home in a desirable location.",
       "shortDescription": "Three-bedroom penthouse with private terrace, modern kitchen, and great transport links.",
        "location": "Station Road, Orpington, Kent BR6 8PQ",
-      "images": ["images/prop1/property_image.webp"],
+      "images": ["/images/prop1/download.jpg","/images/prop1/download.jpg"],
       "url": "properties/prop6.html",
       "added": {
         "month": "May",

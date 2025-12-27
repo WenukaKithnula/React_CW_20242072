@@ -48,3 +48,45 @@
   gap: 10px;
   border: 2px solid green;
 }
+@media (max-width: 700px) {
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      /* allow items to wrap */
+  }
+
+  .fav-property-display {
+    order: 3;          /* move below .filtered-property */
+      /* full width */
+  }
+
+  .filtered-property {
+    order: 2;          /* stays on top */
+       /* optional: width on wrap */
+  }
+
+  .drag-drop {
+    order: 1;  
+      /* stays last/right */
+      /* fixed width */
+      display: flex;
+      flex-direction: row;
+      width: 90%;
+      justify-content: space-around;
+      padding: 0px;
+      height: 100px;
+      
+  }
+  .add-fav,
+.remove-fav {
+  border: 2px solid black;
+  padding: 0px 0px;
+
+  text-align: center;
+  
+  cursor: pointer;
+}
+}
+
+

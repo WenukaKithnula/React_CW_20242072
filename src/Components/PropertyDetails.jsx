@@ -1,16 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { use } from "react";
-import "./PropertyDetails.css";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import "./PropertyDetails.css";
 
 function PropertyDetails({ properties }) {
   const { id } = useParams();
   const property = properties.find((p) => p.id === id);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -29,6 +28,7 @@ function PropertyDetails({ properties }) {
     location,
     images,
     added,
+    mapEmbed,
   } = property;
 
   const GalleryImages = images.map((img) => ({
@@ -37,80 +37,82 @@ function PropertyDetails({ properties }) {
   }));
 
   return (
-    <>
+    <div className="parent-container">
       <div className="back-btn-div">
         <Link to={"/"}>
-          <button className="back-btn">back to home</button>
+          <button className="back-btn">Back to Home</button>
         </Link>
       </div>
-      <div className="parent-container">
-        <div className="property-location">Location : {location}</div>
 
-        <div className="property-images">
-          <ImageGallery
-          
-            items={GalleryImages}
-            showPlayButton={false}
-            thumbnailPosition="bottom"
-          />
-        </div>
-        <div className="propertyDetails-info">
-          <div className="property-price">
-            
-            <p>
-              <b>Price :</b> {price}
-            </p>
-          </div>
+      <h1 className="page-heading">Property Details</h1>
 
+      <div className="property-location">{location}</div>
+
+      <div className="property-images">
+        <ImageGallery
+          items={GalleryImages}
+          showPlayButton={false}
+          thumbnailPosition="bottom"
+        />
+      </div>
+
+      <div className="propertyDetails-info">
+        <div className="propertyDeatil-price">Price: {price.toLocaleString()}</div>
+
+        <div className="property-meta">
+          <div><b>Type:</b> {type}</div>
+          <div><b>Tenure:</b> {tenure}</div>
           <div className="bedroom-count">
-            <p>BedRooms:</p>
+            <b>Bedrooms:</b>
             <img
               src="/images/Icons/Bed-icon.png"
               alt="Bed_icon"
               className="property-info-icon"
             />
-            <p className="room-count">{bedrooms}</p>
+            <span className="room-count">{bedrooms}</span>
           </div>
-          <div className="add-date">
-            <p>Added date : {added.year} {added.month} {added.day}</p>
+          <div><b>Added:</b> {added.day} {added.month} {added.year}</div>
+        </div>
 
-          </div>
-          <div className="mini-descripstion">
-            <p>
-              <b> Short description :</b> {shortDescription}
-            </p>
-          </div>
-          <div className="tab-section">
-            <Tabs>
-              <TabList>
-                <Tab>Description</Tab>
-                <Tab>Floor Plan</Tab>
-                <Tab>Map</Tab>
-              </TabList>
-              <TabPanel>
-                <div className="long-description">{description}</div>
-              </TabPanel>
-              <TabPanel></TabPanel>
-              <TabPanel>
-                <div className="property-map" style={{ marginTop: "2rem" }}>
-                  <h3>Location Map</h3>
-                  <iframe
-                    src={property.mapEmbed} // uses the mapEmbed from your JSON
-                    width="100%"
-                    height="400"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Property Location Map"
-                  ></iframe>
-                </div>
-              </TabPanel>
-            </Tabs>
-          </div>
+        <div className="mini-descripstion">
+          <b>Short description:</b> {shortDescription}
+        </div>
+
+        <div className="tab-section">
+          <Tabs>
+            <TabList>
+              <Tab>Description</Tab>
+              <Tab>Floor Plan</Tab>
+              <Tab>Map</Tab>
+            </TabList>
+
+            <TabPanel>
+              <div className="long-description">{description}</div>
+            </TabPanel>
+
+            <TabPanel>
+              <p>Floor plan coming soon.</p>
+            </TabPanel>
+
+            <TabPanel>
+              <div className="property-map">
+                <h3>Location Map</h3>
+                <iframe
+                  src={mapEmbed}
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Property Location Map"
+                ></iframe>
+              </div>
+            </TabPanel>
+          </Tabs>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
