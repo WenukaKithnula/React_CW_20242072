@@ -137,7 +137,7 @@ function SearchForm({ setSearchCriteria }) {
         </div>
 
         <div className="Search-btn">
-          <button type="submit">Search</button>
+          <button type="submit">Search Properties</button>
         </div>
       </div>
     </form>
