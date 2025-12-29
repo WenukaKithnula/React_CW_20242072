@@ -74,48 +74,45 @@ function DisplayProp({
         </div>
 
         {/* FAVORITES SECTION */}
-        <div className="fav-property-display" ref={favRef}>
-          <h3>Favorites display</h3>
-
-          {favoriteProperties.length === 0 && (
-            <p>No favorite properties yet</p>
-          )}
-
-          <button onClick={clearFavorites}>Clear favorites</button>
-
-          {favoriteProperties.map((property) => (
-            <PropCard
-              key={property.id}
-              property={property}
-              isFavorite={true}
-              addToFavorites={addToFavorites}
-              removeFromFavorites={removeFromFavorites}
-            />
-          ))}
-        </div>
-
-        {/* DRAG & DROP */}
-        <div className="drag-drop">
+        <div className="right-side">
           <div
-            className="add-fav"
+            className="fav-property-display"
+            ref={favRef}
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
           >
-            {dragOver
-              ? "Release to add to Favorites"
-              : "Drag to add to Favorites"}
+            <h3>Favorites display</h3>
+
+            {favoriteProperties.length === 0 ? (
+              <p>
+                No favorite properties yet <br /> drag property card to add
+              </p>
+            ) : (
+              <button onClick={clearFavorites}>Clear favorites</button>
+            )}
+
+            {favoriteProperties.map((property) => (
+              <PropCard
+                key={property.id}
+                property={property}
+                isFavorite={true}
+                addToFavorites={addToFavorites}
+                removeFromFavorites={removeFromFavorites}
+              />
+            ))}
           </div>
 
-          <div
-            className="remove-fav"
-            onDrop={handleRemoveDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-          >
-            {dragOver
-              ? "Release to remove Favorites"
-              : "Drag here to remove Favorites"}
+          {/* DRAG & DROP */}
+          <div className="drag-drop">
+            <div
+              className="remove-fav"
+              onDrop={handleRemoveDrop}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+            >
+              <p>drag and drop remove fav</p>
+            </div>
           </div>
         </div>
       </div>

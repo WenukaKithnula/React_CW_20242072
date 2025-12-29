@@ -1,111 +1,112 @@
+/* ------------------ GALLERY ------------------ */
 .gallery {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   padding: 10px;
   border: 2px solid black;
+  align-items: flex-start; /* align left and right top edges */
+  
 }
 
-/* LEFT */
+/* ------------------ LEFT ------------------ */
+.filtered-property-main {
+  flex: 4; /* take most horizontal space */
+  border: 2px solid green;
+}
+
 .filtered-property {
-  
   display: flex;
-  
   flex-wrap: wrap;
   gap: 10px;
   border: 2px solid red;
   justify-content: space-evenly;
-  
-  align-self: flex-start;
-}
-.filtered-property-main{
-  flex: 4;
-  border: 2px solid green;
 }
 
-/* MIDDLE – STICKY */
-.drag-drop {
-  position: sticky;
-  top: 20px;               /* sticks 20px from top of gallery */
-   /* REQUIRED for flex layouts */
-  border-radius: 10px;
-  padding: 10px;
-  width: 140px;
-  background-color: rgb(237, 182, 128);
-  height: fit-content;
-  height: 700px;
+/* ------------------ RIGHT (Favorites + Drag/Remove stacked vertically) ------------------ */
+.right-side {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   flex: 1;
+   border: 2px solid black;
+   
 }
 
-/* DRAG BUTTONS */
-.add-fav,
-.remove-fav {
-  border: 3px dotted black;
-  padding: 80px 10px;
-  text-align: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-  margin-bottom: 60px;
-  background-color: rgb(253, 253, 253);
-}
-
-/* RIGHT */
+/* Favorites section */
 .fav-property-display {
-  flex: 2;
-  align-self: flex-start;
+  order: 2;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  border: 2px solid green;
+  border: 2px solid black;
+  width: 100%;
+  margin-top: 20px;
 }
-.view-fav-btn{
+
+/* Drag/remove box */
+.drag-drop {
+  order: 1;
+  display: flex;
+  border: 2px solid black;
+  width: 100%;
+  text-align: center;
+  position: sticky;
+  top: 10px; /* <-- add this! */
+  z-index: 10; /* optional, ensures it stays above other elements */
+}
+
+
+.remove-fav {
+  border: 3px dotted rgb(255, 81, 0);
+  width: 100%;
+  
+}
+.add-fav{
+  border: 2px solid pink;
+}
+
+/* ------------------ VIEW FAVORITES BUTTON ------------------ */
+.view-fav-btn {
   display: none;
 }
+
+/* ------------------ MOBILE ------------------ */
 @media (max-width: 700px) {
   .gallery {
-    display: flex;
     flex-direction: column;
     align-items: center;
-      /* allow items to wrap */
   }
-  .view-fav-btn{
-  display: block;
-}
 
-
-  .fav-property-display {
-    order: 3;   
-           /* move below .filtered-property */
-      /* full width */
-      width: 100%;
+  .view-fav-btn {
+    display: block;
+    margin-bottom: 10px;
   }
 
   .filtered-property-main {
-    order: 2;          /* stays on top */
-       /* optional: width on wrap */
+    order: 2;
+    width: 100%;
+  }
+
+  .fav-property-display {
+    order: 3;
+    width: 100%;
   }
 
   .drag-drop {
-    order: 1;  
-      /* stays last/right */
-      /* fixed width */
-      display: flex;
-      flex-direction: row;
-      width: 90%;
-      justify-content: space-around;
-      padding: 0px;
-      height: 100px;
-      
+    order: 1;
+    width: 90%;
+    padding: 10px 0;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
   }
+
   .add-fav,
-.remove-fav {
-  border: 2px solid black;
-  padding: 0px 0px;
-
-  text-align: center;
-  
-  cursor: pointer;
+  .remove-fav {
+    border: 2px solid black;
+    padding: 15px 0;
+    text-align: center;
+    cursor: pointer;
+  }
 }
-}
-
-

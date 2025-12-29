@@ -9,7 +9,7 @@
       "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
       "shortDescription": "Three-bedroom semi-detached family home near Petts Wood station, with modern interiors and convenient location.",
       "location": "Petts Wood Road, Petts Wood, Orpington BR5",
-      "images": ["/images/prop1/pic1.jpg","/images/prop1/pic3.JPG","/images/prop1/pic4.JPG","/images/prop1/pic5.JPG","/images/prop1/pic6.JPG","/images/prop1/pic7.JPG"],
+      "images": ["/images/prop1/pic1.webp","/images/prop1/pic3.webp","/images/prop1/pic4.webp","/images/prop1/pic5.webp","/images/prop1/pic6.webp","/images/prop1/pic2.webp"],
       "url": "properties/prop1.html",
       "added": {
         "month": "October",
@@ -45,7 +45,7 @@
       "description": "Spacious four-bedroom detached house with a large landscaped garden and double garage. The ground floor features a generous open-plan kitchen and dining area, two reception rooms with ample natural light, and a utility room with cloakroom. Upstairs, the master bedroom benefits from an en-suite bathroom and built-in wardrobes, while the remaining three bedrooms are serviced by a modern family bathroom. The property also offers double glazing, gas central heating, and high-quality finishes throughout. Conveniently located near local schools, shops, and transport links.",
       "shortDescription": "Four-bedroom detached house with garden, garage, and modern interiors, close to schools.",
       "location": "Maple Avenue, Bromley, Orpington BR2 ",
-      "images": ["images/prop1/property_image.webp"],
+      "images": ["/images/prop3/pic1.webp","/images/prop3/pic3.webp","/images/prop3/pic4.webp","/images/prop3/pic5.webp","/images/prop3/pic6.webp","/images/prop3/pic7.webp"],
       "url": "properties/prop3.html",
       "added": {
         "month": "August",
