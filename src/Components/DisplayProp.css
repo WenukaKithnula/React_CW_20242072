@@ -7,13 +7,19 @@
 
 /* LEFT */
 .filtered-property {
-  flex: 4;
+  
   display: flex;
+  
   flex-wrap: wrap;
   gap: 10px;
   border: 2px solid red;
+  justify-content: space-evenly;
   
   align-self: flex-start;
+}
+.filtered-property-main{
+  flex: 4;
+  border: 2px solid green;
 }
 
 /* MIDDLE – STICKY */
@@ -21,21 +27,24 @@
   position: sticky;
   top: 20px;               /* sticks 20px from top of gallery */
    /* REQUIRED for flex layouts */
-  border: 2px solid brown;
+  border-radius: 10px;
   padding: 10px;
   width: 140px;
+  background-color: rgb(237, 182, 128);
   height: fit-content;
-  height: 500px;
+  height: 700px;
 }
 
 /* DRAG BUTTONS */
 .add-fav,
 .remove-fav {
-  border: 2px solid black;
+  border: 3px dotted black;
   padding: 80px 10px;
   text-align: center;
   margin-bottom: 20px;
   cursor: pointer;
+  margin-bottom: 60px;
+  background-color: rgb(253, 253, 253);
 }
 
 /* RIGHT */
@@ -43,10 +52,14 @@
   flex: 2;
   align-self: flex-start;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
   gap: 10px;
   border: 2px solid green;
+}
+.view-fav-btn{
+  display: none;
 }
 @media (max-width: 700px) {
   .gallery {
@@ -55,13 +68,19 @@
     align-items: center;
       /* allow items to wrap */
   }
+  .view-fav-btn{
+  display: block;
+}
+
 
   .fav-property-display {
-    order: 3;          /* move below .filtered-property */
+    order: 3;   
+           /* move below .filtered-property */
       /* full width */
+      width: 100%;
   }
 
-  .filtered-property {
+  .filtered-property-main {
     order: 2;          /* stays on top */
        /* optional: width on wrap */
   }

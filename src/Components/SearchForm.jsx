@@ -38,7 +38,7 @@ function SearchForm({ setSearchCriteria }) {
 
         <div className="flex-container-1">
           <div className="location-value">
-            <label>Search Location</label>
+            <label>Search Location :</label>
             <input
             className="input-location"
               type="text"
@@ -51,7 +51,7 @@ function SearchForm({ setSearchCriteria }) {
           </div>
 
           <div className="property-type-search">
-            <label>Type</label>
+            <label>Type :</label>
             <DropdownList
               data={["any", "House", "Flat"]}
               value={formValues.type}
@@ -63,7 +63,7 @@ function SearchForm({ setSearchCriteria }) {
 
           <div className="property-date">
             <div className="from">
-              <label>Date From</label>
+              <label>Date From :</label>
               <DatePicker
                 selected={formValues.dateFrom}
                 onChange={(date) =>
@@ -74,7 +74,7 @@ function SearchForm({ setSearchCriteria }) {
             </div>
 
             <div className="to">
-              <label>Date To</label>
+              <label>Date To :</label>
               <DatePicker
                 selected={formValues.dateTo}
                 onChange={(date) =>
@@ -89,7 +89,7 @@ function SearchForm({ setSearchCriteria }) {
         <div className="flex-container-2">
           <div className="property-price">
             <div>
-              <label>Min Price</label>
+              <label>Min Price :</label>
               <NumberPicker
                 value={formValues.minPrice}
                 onChange={(val) =>
@@ -100,7 +100,7 @@ function SearchForm({ setSearchCriteria }) {
             </div>
 
             <div>
-              <label>Max Price</label>
+              <label>Max Price :</label>
               <NumberPicker
                 value={formValues.maxPrice}
                 onChange={(val) =>
@@ -113,7 +113,7 @@ function SearchForm({ setSearchCriteria }) {
 
           <div className="property-bedroom">
             <div>
-              <label>Min Rooms</label>
+              <label>Min Rooms :</label>
               <DropdownList
                 data={bedroomOptions}
                 value={formValues.minBedrooms}
@@ -124,7 +124,7 @@ function SearchForm({ setSearchCriteria }) {
             </div>
 
             <div>
-              <label>Max Rooms</label>
+              <label>Max Rooms :</label>
               <DropdownList
                 data={maxBedroomOptions}
                 value={formValues.maxBedrooms}

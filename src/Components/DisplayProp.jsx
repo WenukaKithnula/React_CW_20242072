@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PropCard from "./PropCard";
 import "./DisplayProp.css";
-
 
 function DisplayProp({
   filteredProperties,
   addToFavorites,
   removeFromFavorites,
   favoriteProperties,
-  clearFavorites
+  clearFavorites,
 }) {
   const [dragOver, setDragOver] = useState(false);
+  const favRef = useRef(null); // ⭐ reference to favorites section
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -41,26 +41,48 @@ function DisplayProp({
     setDragOver(false);
   };
 
+  const scrollToFav = () => {
+    favRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="gallery">
-      {/* FILTERED PROPERTIES */}
-      <div className="filtered-property" >
-        {filteredProperties.map((property) => (
-          <PropCard
-            key={property.id}
-            property={property}
-            isFavorite={favoriteProperties.some(
-              (f) => f.id === property.id
-            )}
-            addToFavorites={addToFavorites}
-            removeFromFavorites={removeFromFavorites}
-          />
-        ))}
+    <>
+      {/* VIEW FAV BUTTON */}
+      <div>
+        <button className="view-fav-btn" onClick={scrollToFav}>
+          View Favorites
+        </button>
       </div>
 
-      <div className="fav-property-display">
-          <h3>Fvarotes dipslay</h3>
-          <button onClick={clearFavorites}>clear favorites</button>
+      <div className="gallery">
+        {/* FILTERED PROPERTIES */}
+        <div className="filtered-property-main">
+          <h1>{filteredProperties.length} results</h1>
+          <div className="filtered-property">
+            {filteredProperties.map((property) => (
+              <PropCard
+                key={property.id}
+                property={property}
+                isFavorite={favoriteProperties.some(
+                  (f) => f.id === property.id
+                )}
+                addToFavorites={addToFavorites}
+                removeFromFavorites={removeFromFavorites}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* FAVORITES SECTION */}
+        <div className="fav-property-display" ref={favRef}>
+          <h3>Favorites display</h3>
+
+          {favoriteProperties.length === 0 && (
+            <p>No favorite properties yet</p>
+          )}
+
+          <button onClick={clearFavorites}>Clear favorites</button>
+
           {favoriteProperties.map((property) => (
             <PropCard
               key={property.id}
@@ -72,8 +94,7 @@ function DisplayProp({
           ))}
         </div>
 
-      {/* FAVOURITES DRAG & DROP */}
-      
+        {/* DRAG & DROP */}
         <div className="drag-drop">
           <div
             className="add-fav"
@@ -83,7 +104,7 @@ function DisplayProp({
           >
             {dragOver
               ? "Release to add to Favorites"
-              : "Drag  add to Favorites"}
+              : "Drag to add to Favorites"}
           </div>
 
           <div
@@ -94,14 +115,11 @@ function DisplayProp({
           >
             {dragOver
               ? "Release to remove Favorites"
-              : <p>Release to remove Favorites</p>}
+              : "Drag here to remove Favorites"}
           </div>
         </div>
-
-        {/* FAVOURITES LIST */}
-       
       </div>
-    
+    </>
   );
 }
 

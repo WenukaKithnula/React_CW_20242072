@@ -47,12 +47,12 @@ function PropCard({
             </div>
           </div>
           
-          {/* View Details Link */}
+          
           <Link to={url} className="view-more-btn">
             View More Details
           </Link>
 
-          {/* Add/Remove Favorites Button */}
+          
           <button onClick={handleFavoriteClick} className="add-to-fav-btn">
             {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
           </button>
