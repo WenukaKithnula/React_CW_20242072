@@ -5,7 +5,6 @@
   padding: 10px;
   border: 2px solid black;
   align-items: flex-start; /* align left and right top edges */
-  
 }
 
 /* ------------------ LEFT ------------------ */
@@ -24,13 +23,12 @@
 
 /* ------------------ RIGHT (Favorites + Drag/Remove stacked vertically) ------------------ */
 .right-side {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   flex: 1;
-   border: 2px solid black;
-   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border: 2px solid black;
 }
 
 /* Favorites section */
@@ -48,6 +46,7 @@
 .drag-drop {
   order: 1;
   display: flex;
+  min-width: 200px;
   border: 2px solid black;
   width: 100%;
   text-align: center;
@@ -56,13 +55,12 @@
   z-index: 10; /* optional, ensures it stays above other elements */
 }
 
-
 .remove-fav {
   border: 3px dotted rgb(255, 81, 0);
   width: 100%;
-  
+  background-color: rgb(232, 156, 156);
 }
-.add-fav{
+.add-fav {
   border: 2px solid pink;
 }
 
