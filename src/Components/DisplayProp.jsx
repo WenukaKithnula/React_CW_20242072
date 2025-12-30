@@ -57,7 +57,7 @@ function DisplayProp({
       <div className="gallery">
         {/* FILTERED PROPERTIES */}
         <div className="filtered-property-main">
-          <h1>{filteredProperties.length} results</h1>
+          <h1>{filteredProperties.length} Results Found</h1>
           <div className="filtered-property">
             {filteredProperties.map((property) => (
               <PropCard
@@ -82,7 +82,7 @@ function DisplayProp({
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
           >
-            <h3>Favorites display</h3>
+            <h3>Favorites Properties</h3>
 
             {favoriteProperties.length === 0 ? (
               <p>
@@ -104,6 +104,7 @@ function DisplayProp({
           </div>
 
           {/* DRAG & DROP */}
+          {favoriteProperties.length===0?"":
           <div className="drag-drop">
             <div
               className="remove-fav"
@@ -113,7 +114,7 @@ function DisplayProp({
             >
               <p>drag and drop remove fav</p>
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </>
