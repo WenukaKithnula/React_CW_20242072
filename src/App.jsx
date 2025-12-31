@@ -96,12 +96,12 @@ function App() {
     setFilteredProperties(results);
   };
 
-  // ✅ CALL FILTER WHEN SEARCH CRITERIA CHANGES
+  //  CALL FILTER WHEN SEARCH CRITERIA CHANGES
   useEffect(() => {
     filterProperties(searchCriteria);
   }, [searchCriteria]);
 
-  // ✅ FAVORITES ARRAY LOGIC
+  //  FAVORITES ARRAY LOGIC
 
 
   const addToFavorites = (property) => {

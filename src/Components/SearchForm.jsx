@@ -9,8 +9,8 @@ import "./SearchForm.css";
 function SearchForm({ setSearchCriteria }) {
   const [formValues, setFormValues] = useState({
     type: "any",
-    minPrice: "",
-    maxPrice: "",
+    minPrice: "no min",
+    maxPrice: "no max",
     minBedrooms: "",
     maxBedrooms: "",
     dateFrom: null,
@@ -20,6 +20,17 @@ function SearchForm({ setSearchCriteria }) {
 
   const bedroomOptions = ["no min", 1, 2, 3, 4, 5];
   const maxBedroomOptions = ["no max", 1, 2, 3, 4, 5];
+
+  const minPriceOptions = ["no min", 50000, 100000, 200000, 300000, 500000];
+  const maxPriceOptions = [
+    "no max",
+    100000,
+    200000,
+    300000,
+    500000,
+    750000,
+    1000000,
+  ];
 
   const handleSearchClick = () => {
     setSearchCriteria(formValues);
@@ -40,7 +51,7 @@ function SearchForm({ setSearchCriteria }) {
           <div className="location-value">
             <label>Search Location :</label>
             <input
-            className="input-location"
+              className="input-location"
               type="text"
               value={formValues.postcode}
               onChange={(e) =>
@@ -55,9 +66,7 @@ function SearchForm({ setSearchCriteria }) {
             <DropdownList
               data={["any", "House", "Flat"]}
               value={formValues.type}
-              onChange={(val) =>
-                setFormValues({ ...formValues, type: val })
-              }
+              onChange={(val) => setFormValues({ ...formValues, type: val })}
             />
           </div>
 
@@ -90,23 +99,23 @@ function SearchForm({ setSearchCriteria }) {
           <div className="property-price">
             <div>
               <label>Min Price :</label>
-              <NumberPicker
+              <DropdownList
+                data={minPriceOptions}
                 value={formValues.minPrice}
                 onChange={(val) =>
                   setFormValues({ ...formValues, minPrice: val })
                 }
-                min={0}
               />
             </div>
 
             <div>
               <label>Max Price :</label>
-              <NumberPicker
+              <DropdownList
+                data={maxPriceOptions}
                 value={formValues.maxPrice}
                 onChange={(val) =>
                   setFormValues({ ...formValues, maxPrice: val })
                 }
-                min={0}
               />
             </div>
           </div>
