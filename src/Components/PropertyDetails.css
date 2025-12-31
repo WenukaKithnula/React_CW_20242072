@@ -58,7 +58,19 @@
   object-fit: cover;
   border-radius: 6px;
 }
+.floor-plan {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
 
+.floor-plan-img {
+  max-width: 100%;
+  width: 700px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 /* ================= INFO CARD ================= */
 .propertyDetails-info {
   max-width: 900px;

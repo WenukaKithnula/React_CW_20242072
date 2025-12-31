@@ -1,0 +1,27 @@
+.logo-icon-container{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+
+    
+}
+.logo-icon-div{
+     max-width: 200px;
+     
+     
+}
+.logo-icon{
+    width: 100%;
+    
+}
+.logo-word{
+    padding: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    
+    
+}
+

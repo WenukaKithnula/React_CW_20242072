@@ -27,6 +27,7 @@ function PropertyDetails({ properties }) {
     description,
     location,
     images,
+    property_plan,
     added,
     mapEmbed,
   } = property;
@@ -57,11 +58,17 @@ function PropertyDetails({ properties }) {
       </div>
 
       <div className="propertyDetails-info">
-        <div className="propertyDeatil-price">Price: {price.toLocaleString()}</div>
+        <div className="propertyDeatil-price">
+          Price: {price.toLocaleString()}
+        </div>
 
         <div className="property-meta">
-          <div><b>Type:</b> {type}</div>
-          <div><b>Tenure:</b> {tenure}</div>
+          <div>
+            <b>Type:</b> {type}
+          </div>
+          <div>
+            <b>Tenure:</b> {tenure}
+          </div>
           <div className="bedroom-count">
             <b>Bedrooms:</b>
             <img
@@ -71,7 +78,9 @@ function PropertyDetails({ properties }) {
             />
             <span className="room-count">{bedrooms}</span>
           </div>
-          <div><b>Added:</b> {added.day} {added.month} {added.year}</div>
+          <div>
+            <b>Added:</b> {added.day} {added.month} {added.year}
+          </div>
         </div>
 
         <div className="mini-descripstion">
@@ -91,7 +100,13 @@ function PropertyDetails({ properties }) {
             </TabPanel>
 
             <TabPanel>
-              <p>Floor plan coming soon.</p>
+              <div className="floor-plan">
+                <img
+                  src={property_plan[0]}
+                  alt="Property floor plan"
+                  className="floor-plan-img"
+                />
+              </div>
             </TabPanel>
 
             <TabPanel>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import Logo from "./Components/Logo";
 import SearchForm from "./Components/SearchForm";
 import DisplayProp from "./Components/DisplayProp";
 import { Routes, Route } from "react-router-dom";
@@ -127,6 +127,7 @@ function App() {
         path="/"
         element={
           <>
+          <Logo></Logo>
             <SearchForm setSearchCriteria={setSearchCriteria} />
             <DisplayProp
               filteredProperties={filteredProperties}
