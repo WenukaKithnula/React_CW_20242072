@@ -89,7 +89,7 @@ function DisplayProp({
                 No favorite properties yet <br /> drag property card to add
               </p>
             ) : (
-              <button onClick={clearFavorites}>Clear favorites</button>
+              <button onClick={clearFavorites} className="clear-btn">Clear favorites</button>
             )}
 
             {favoriteProperties.map((property) => (

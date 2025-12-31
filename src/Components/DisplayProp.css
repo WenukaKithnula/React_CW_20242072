@@ -4,7 +4,7 @@
   font-family: Arial, Helvetica, sans-serif;
   gap: 30px;
   padding: 10px;
-  border: 2px solid black;
+  border: 1px solid gray;
   background-color: rgb(244, 240, 240);
   align-items: flex-start; /* align left and right top edges */
 }
@@ -14,17 +14,14 @@
   flex: 4; /* take most horizontal space */
   border-radius: 20px;
   background-color: rgba(250, 250, 250, 0.537);
-  box-shadow: 
-  0 4px 6px rgba(0, 0, 0, 0.1),
-  0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .filtered-property {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  
- 
+
   justify-content: space-evenly;
 }
 
@@ -38,7 +35,6 @@
   flex: 1;
   position: sticky;
   top: 2px;
-  
 }
 
 /* Favorites section */
@@ -52,11 +48,8 @@
   min-width: 250px;
   margin-top: 20px;
   background-color: rgba(243, 247, 241, 0.342);
-   box-shadow: 
-  0 4px 6px rgba(0, 0, 0, 0.1),
-  0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
-  
 }
 
 /* Drag/remove box */
@@ -85,6 +78,13 @@
 .view-fav-btn {
   display: none;
 }
+.clear-btn {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: rgb(243, 218, 185);
+}
 
 /* ------------------ MOBILE ------------------ */
 @media (max-width: 770px) {
@@ -95,12 +95,15 @@
 
   .view-fav-btn {
     display: block;
-    margin-bottom: 10px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid;
+
+    font-weight: bold;
+    background-color: rgb(243, 218, 185);
   }
-  .right-side{
+  .right-side {
     width: 100%;
   }
-
- 
-
 }
