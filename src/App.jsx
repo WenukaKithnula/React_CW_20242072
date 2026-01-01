@@ -12,7 +12,7 @@ function App() {
   const [favoriteProperties, setFavoriteProperties] = useState([]);
 
   const [searchCriteria, setSearchCriteria] = useState({
-    type: "",
+    type: "any",
     minPrice: "",
     maxPrice: "",
     minBedrooms: "",
@@ -25,25 +25,24 @@ function App() {
   const [filteredProperties, setFilteredProperties] = useState([]);
 
   useEffect(() => {
-  fetch("/data/properties.json")
-    .then((res) => res.json())
-    .then((data) => {
-      setProperties(data.properties);
-      setFilteredProperties(data.properties); // optional: show all initially
-    })
-    .catch((err) => console.error("Error loading properties:", err));
-}, []);
-
+    fetch("/data/properties.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setProperties(data.properties);
+        setFilteredProperties(data.properties); // optional: show all initially
+      })
+      .catch((err) => console.error("Error loading properties:", err));
+  }, []);
 
   // ✅ FILTERING LOGIC
   const filterProperties = (criteria) => {
     const results = properties.filter((property) => {
       /* ---------------- POSTCODE / LOCATION ---------------- */
       if (
-        criteria.postcode &&
+        criteria.postcode?.trim() &&
         !property.location
           .toLowerCase()
-          .includes(criteria.postcode.toLowerCase())
+          .includes(criteria.postcode.trim().toLowerCase())
       ) {
         return false;
       }
@@ -57,22 +56,30 @@ function App() {
       }
 
       /* ---------------- PRICE RANGE ---------------- */
-      if (criteria.minPrice && property.price < criteria.minPrice) {
-        return false;
-      }
+      const minPrice =
+        criteria.minPrice === "no min" || criteria.minPrice === ""
+          ? 0
+          : Number(criteria.minPrice);
+      const maxPrice =
+        criteria.maxPrice === "no max" || criteria.maxPrice === ""
+          ? Infinity
+          : Number(criteria.maxPrice);
 
-      if (criteria.maxPrice && property.price > criteria.maxPrice) {
-        return false;
-      }
+      if (property.price < minPrice) return false;
+      if (property.price > maxPrice) return false;
 
       /* ---------------- BEDROOMS ---------------- */
-      if (criteria.minBedrooms && property.bedrooms < criteria.minBedrooms) {
-        return false;
-      }
+      const minBeds =
+        criteria.minBedrooms === "no min" || criteria.minBedrooms === ""
+          ? 0
+          : Number(criteria.minBedrooms);
+      const maxBeds =
+        criteria.maxBedrooms === "no max" || criteria.maxBedrooms === ""
+          ? Infinity
+          : Number(criteria.maxBedrooms);
 
-      if (criteria.maxBedrooms && property.bedrooms > criteria.maxBedrooms) {
-        return false;
-      }
+      if (property.bedrooms < minBeds) return false;
+      if (property.bedrooms > maxBeds) return false;
 
       /* ---------------- DATE RANGE ---------------- */
       if (criteria.dateFrom || criteria.dateTo) {
@@ -103,7 +110,6 @@ function App() {
 
   //  FAVORITES ARRAY LOGIC
 
-
   const addToFavorites = (property) => {
     setFavoriteProperties((prev) => {
       const exists = prev.some((f) => f.id === property.id);
@@ -117,9 +123,9 @@ function App() {
   const removeFromFavorites = (propertyId) => {
     setFavoriteProperties((prev) => prev.filter((p) => p.id !== propertyId));
   };
-  const clearFavorites = ()=>{
-    setFavoriteProperties([])
-  }
+  const clearFavorites = () => {
+    setFavoriteProperties([]);
+  };
 
   return (
     <Routes>
@@ -127,15 +133,14 @@ function App() {
         path="/"
         element={
           <>
-          <Logo></Logo>
+            <Logo></Logo>
             <SearchForm setSearchCriteria={setSearchCriteria} />
             <DisplayProp
               filteredProperties={filteredProperties}
               favoriteProperties={favoriteProperties}
               addToFavorites={addToFavorites}
               removeFromFavorites={removeFromFavorites}
-              clearFavorites = {clearFavorites}
-
+              clearFavorites={clearFavorites}
             />
           </>
         }
@@ -144,10 +149,9 @@ function App() {
         path="/properties/:id.html"
         element={
           <PropertyDetails
-          properties={properties} 
+            properties={properties}
             addToFavorites={addToFavorites}
             removeFromFavorites={removeFromFavorites}
-            
           />
         }
       />
