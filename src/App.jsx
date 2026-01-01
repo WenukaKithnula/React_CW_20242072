@@ -3,7 +3,7 @@ import Logo from "./Components/Logo";
 import SearchForm from "./Components/SearchForm";
 import DisplayProp from "./Components/DisplayProp";
 import { Routes, Route } from "react-router-dom";
-import Favorites from "./Components/favorites";
+
 import PropertyDetails from "./Components/PropertyDetails";
 
 function App() {
