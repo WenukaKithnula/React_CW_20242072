@@ -57,6 +57,15 @@ function DisplayProp({
       <div className="gallery">
         {/* FILTERED PROPERTIES */}
         <div className="filtered-property-main">
+          <div
+            className="phone-view-add-fav"
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+          >
+            darg to add to favorite
+          </div>
+
           <h1>{filteredProperties.length} Results Found</h1>
           <div className="filtered-property">
             {filteredProperties.map((property) => (
@@ -89,7 +98,9 @@ function DisplayProp({
                 No favorite properties yet <br /> drag property card to add
               </p>
             ) : (
-              <button onClick={clearFavorites} className="clear-btn">Clear favorites</button>
+              <button onClick={clearFavorites} className="clear-btn">
+                Clear favorites
+              </button>
             )}
 
             {favoriteProperties.map((property) => (
@@ -104,17 +115,20 @@ function DisplayProp({
           </div>
 
           {/* DRAG & DROP */}
-          {favoriteProperties.length===0?"":
-          <div className="drag-drop">
-            <div
-              className="remove-fav"
-              onDrop={handleRemoveDrop}
-              onDragOver={handleDragOver}
-              onDragLeave={handleDragLeave}
-            >
-              <p>drag and drop remove fav</p>
+          {favoriteProperties.length === 0 ? (
+            ""
+          ) : (
+            <div className="drag-drop">
+              <div
+                className="remove-fav"
+                onDrop={handleRemoveDrop}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+              >
+                <p>drag and drop remove fav</p>
+              </div>
             </div>
-          </div>}
+          )}
         </div>
       </div>
     </>
