@@ -1,7 +1,7 @@
 /* ------------------ GALLERY ------------------ */
 .gallery {
   display: flex;
-  font-family: Arial, Helvetica, sans-serif;
+  
   gap: 30px;
   padding: 10px;
   border: 1px solid gray;
@@ -84,7 +84,9 @@
   border-radius: 5px;
   font-weight: bold;
   background-color: rgb(243, 218, 185);
+   cursor: pointer;
 }
+
 
 /* ------------------ MOBILE ------------------ */
 @media (max-width: 770px) {
