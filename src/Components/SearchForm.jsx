@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { DropdownList, NumberPicker } from "react-widgets";
+import TextField from "@mui/material/TextField";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "react-widgets/styles.css";
@@ -49,15 +50,18 @@ function SearchForm({ setSearchCriteria }) {
 
         <div className="flex-container-1">
           <div className="location-value">
-            <label>Search Location :</label>
-            <input
+            <label htmlFor="label-location">Search Location :</label>
+            <TextField
+              id="label-location"
               className="input-location"
-              type="text"
+              variant="outlined"
+              size="small"
               value={formValues.postcode}
               onChange={(e) =>
                 setFormValues({ ...formValues, postcode: e.target.value })
               }
               placeholder="Enter Location"
+              fullWidth
             />
           </div>
 

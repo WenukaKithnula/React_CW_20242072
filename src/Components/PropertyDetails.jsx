@@ -44,11 +44,7 @@ function PropertyDetails({ properties }) {
           <button className="back-btn">Back to Home</button>
         </Link>
         <div className="back-to-mian-logo">
-          <img
-            src=""
-            alt="Company Logo"
-            className="logo-icon"
-          /> 
+          
 
         </div>
       </div>

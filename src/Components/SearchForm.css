@@ -141,6 +141,27 @@ label {
   border: 1px solid #ccc;
  
 }
+/* Location Input (MUI TextField) */
+.input-location {
+  width: 100%;          
+  height: 40px;         
+  border-radius: 5px;   
+  font-size: 14px;   
+  box-sizing: border-box;
+}
+
+/* Override MUI input root (optional if you want exact style) */
+.input-location .MuiOutlinedInput-root {
+  border-radius: 5px;       /* same as before */
+  font-size: 14px;
+}
+
+/* For small screens (responsive) */
+@media (max-width: 900px) {
+  .input-location {
+    width: 100%;
+  }
+}
 
 /* Responsive */
 
