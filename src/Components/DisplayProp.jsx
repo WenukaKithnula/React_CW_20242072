@@ -10,7 +10,7 @@ function DisplayProp({
   clearFavorites,
 }) {
   const [dragOver, setDragOver] = useState(false);
-  const favRef = useRef(null); // ⭐ reference to favorites section
+  const favRef = useRef(null); // reference to favorites section
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -47,7 +47,7 @@ function DisplayProp({
 
   return (
     <>
-      {/* VIEW FAV BUTTON */}
+      {/* VIEW FAVORITES BUTTON */}
       <div>
         <button className="view-fav-btn" onClick={scrollToFav}>
           View Favorites
@@ -63,7 +63,7 @@ function DisplayProp({
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
           >
-            darg to add to favorite
+            Drag to add to favorite
           </div>
 
           <h1>{filteredProperties.length} Results Found</h1>
@@ -72,9 +72,7 @@ function DisplayProp({
               <PropCard
                 key={property.id}
                 property={property}
-                isFavorite={favoriteProperties.some(
-                  (f) => f.id === property.id
-                )}
+                isFavorite={false} // Always false in filtered list
                 addToFavorites={addToFavorites}
                 removeFromFavorites={removeFromFavorites}
               />
@@ -90,6 +88,7 @@ function DisplayProp({
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
+            data-testid="favorites-list"
           >
             <h3>Favorites Properties</h3>
 
@@ -107,17 +106,15 @@ function DisplayProp({
               <PropCard
                 key={property.id}
                 property={property}
-                isFavorite={true}
+                isFavorite={true} // Only true in favorites section
                 addToFavorites={addToFavorites}
                 removeFromFavorites={removeFromFavorites}
               />
             ))}
           </div>
 
-          {/* DRAG & DROP */}
-          {favoriteProperties.length === 0 ? (
-            ""
-          ) : (
+          {/* DRAG & DROP REMOVE */}
+          {favoriteProperties.length > 0 && (
             <div className="drag-drop">
               <div
                 className="remove-fav"
@@ -125,7 +122,7 @@ function DisplayProp({
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
               >
-                <p>drag and drop remove fav</p>
+                <p>Drag and drop to remove from favorites</p>
               </div>
             </div>
           )}

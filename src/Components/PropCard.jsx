@@ -25,10 +25,10 @@ function PropCard({
   };
 
   return (
-    <section onDragStart={handleDragStart} draggable="true" className="card">
+    <section onDragStart={handleDragStart} draggable="true" className="card"  data-testid={`prop-card-${id}`}>
       <div className="card-body">
         <div className="Thumbnail">
-          {thumbnail && <img src={thumbnail} alt={type} className="property-image"/>}
+          {thumbnail && <img src={thumbnail} alt={type} className="property-image" data-testid={`prop-img-${id}`}/>}
         </div>
         <div className="property-info">
           <div className="location">{location}</div>
@@ -53,7 +53,7 @@ function PropCard({
           </Link>
 
           
-          <button onClick={handleFavoriteClick} className="add-to-fav-btn">
+          <button onClick={handleFavoriteClick} className="add-to-fav-btn" data-testid={`add-fav-${id}`}>
             {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
           </button>
         </div>

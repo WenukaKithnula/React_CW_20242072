@@ -9,7 +9,10 @@ import PropertyDetails from "./Components/PropertyDetails";
 function App() {
   const [properties, setProperties] = useState([]);
 
-  const [favoriteProperties, setFavoriteProperties] = useState([]);
+  const [favoriteProperties, setFavoriteProperties] = useState(() => {
+    const saved = localStorage.getItem("favoriteProperties");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const [searchCriteria, setSearchCriteria] = useState({
     type: "any",
@@ -23,6 +26,12 @@ function App() {
   });
 
   const [filteredProperties, setFilteredProperties] = useState([]);
+  useEffect(() => {
+    localStorage.setItem(
+      "favoriteProperties",
+      JSON.stringify(favoriteProperties)
+    );
+  }, [favoriteProperties]);
 
   useEffect(() => {
     fetch("/data/properties.json")

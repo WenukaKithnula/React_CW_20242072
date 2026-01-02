@@ -46,7 +46,7 @@ function SearchForm({ setSearchCriteria }) {
       }}
     >
       <div className="search-container">
-        <h1>Search Properties</h1>
+        <h1>HOMIq </h1>
 
         <div className="flex-container-1">
           <div className="location-value">
@@ -56,6 +56,7 @@ function SearchForm({ setSearchCriteria }) {
               className="input-location"
               variant="outlined"
               size="small"
+               aria-label="Search Location"
               value={formValues.postcode}
               onChange={(e) =>
                 setFormValues({ ...formValues, postcode: e.target.value })
@@ -70,6 +71,7 @@ function SearchForm({ setSearchCriteria }) {
             <DropdownList
               data={["any", "House", "Flat"]}
               value={formValues.type}
+              aria-label="Property Type"
               onChange={(val) => setFormValues({ ...formValues, type: val })}
             />
           </div>
@@ -79,6 +81,7 @@ function SearchForm({ setSearchCriteria }) {
               <label>Date From :</label>
               <DatePicker
                 selected={formValues.dateFrom}
+                aria-label="Date From"
                 onChange={(date) =>
                   setFormValues({ ...formValues, dateFrom: date })
                 }
@@ -90,6 +93,7 @@ function SearchForm({ setSearchCriteria }) {
               <label>Date To :</label>
               <DatePicker
                 selected={formValues.dateTo}
+                aria-label="Date To"
                 onChange={(date) =>
                   setFormValues({ ...formValues, dateTo: date })
                 }
@@ -106,6 +110,7 @@ function SearchForm({ setSearchCriteria }) {
               <DropdownList
                 data={minPriceOptions}
                 value={formValues.minPrice}
+                 aria-label="Min Price"
                 onChange={(val) =>
                   setFormValues({ ...formValues, minPrice: val })
                 }
@@ -116,6 +121,7 @@ function SearchForm({ setSearchCriteria }) {
               <label>Max Price :</label>
               <DropdownList
                 data={maxPriceOptions}
+                aria-label="Max Price"
                 value={formValues.maxPrice}
                 onChange={(val) =>
                   setFormValues({ ...formValues, maxPrice: val })
@@ -130,6 +136,7 @@ function SearchForm({ setSearchCriteria }) {
               <DropdownList
                 data={bedroomOptions}
                 value={formValues.minBedrooms}
+                aria-label="Min Rooms"
                 onChange={(val) =>
                   setFormValues({ ...formValues, minBedrooms: val })
                 }
@@ -141,6 +148,7 @@ function SearchForm({ setSearchCriteria }) {
               <DropdownList
                 data={maxBedroomOptions}
                 value={formValues.maxBedrooms}
+                aria-label="Max Rooms"
                 onChange={(val) =>
                   setFormValues({ ...formValues, maxBedrooms: val })
                 }
