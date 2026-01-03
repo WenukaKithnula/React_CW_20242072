@@ -39,15 +39,25 @@ beforeEach(() => {
 });
 
 describe("Property App Critical Functions", () => {
-  it("renders property images correctly", async () => {
-    render(<MemoryRouter><App /></MemoryRouter>);
+ it("renders property images correctly", async () => {
+  // Set the base URL in the test environment
+  const base = import.meta.env.BASE_URL || "/";
 
-    for (let property of mockProperties) {
-      const img = await screen.findByTestId(`prop-img-${property.id}`);
-      expect(img).toBeInTheDocument();
-      expect(img).toHaveAttribute("src", property.images[0]);
-    }
-  });
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+
+  for (let property of mockProperties) {
+    const img = await screen.findByTestId(`prop-img-${property.id}`);
+    expect(img).toBeInTheDocument();
+    
+    // ✅ prepend BASE_URL for test expectation
+    expect(img).toHaveAttribute("src", `${base}${property.images[0]}`);
+  }
+});
+
 
   it("adds a property to favorites", async () => {
     render(<MemoryRouter><App /></MemoryRouter>);

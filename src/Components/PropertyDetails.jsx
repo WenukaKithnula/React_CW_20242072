@@ -9,6 +9,7 @@ import "./PropertyDetails.css";
 function PropertyDetails({ properties }) {
   const { id } = useParams();
   const property = properties.find((p) => p.id === id);
+  const base = import.meta.env.BASE_URL;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,8 +34,8 @@ function PropertyDetails({ properties }) {
   } = property;
 
   const GalleryImages = images.map((img) => ({
-    original: img,
-    thumbnail: img,
+    original: `${base}${img}`,
+    thumbnail: `${base}${img}`,
   }));
 
   return (
@@ -43,10 +44,7 @@ function PropertyDetails({ properties }) {
         <Link to={"/"}>
           <button className="back-btn">Back to Home</button>
         </Link>
-        <div className="back-to-mian-logo">
-          
-
-        </div>
+        <div className="back-to-mian-logo"></div>
       </div>
 
       <h1 className="page-heading">Property Details</h1>
@@ -106,7 +104,7 @@ function PropertyDetails({ properties }) {
             <TabPanel>
               <div className="floor-plan">
                 <img
-                  src={property_plan[0]}
+                  src={`${base}${property_plan}`}
                   alt="Property floor plan"
                   className="floor-plan-img"
                 />
