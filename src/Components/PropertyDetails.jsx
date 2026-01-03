@@ -74,7 +74,7 @@ function PropertyDetails({ properties }) {
           <div className="bedroom-count">
             <b>Bedrooms:</b>
             <img
-              src="/images/Icons/Bed-icon.png"
+              src={`${base}images/Icons/Bed-icon.png`}
               alt="Bed_icon"
               className="property-info-icon"
             />
