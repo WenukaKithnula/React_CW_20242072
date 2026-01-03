@@ -91,7 +91,7 @@ describe("Property App Critical Functions", () => {
 
 
 
-it("persists favorites in localStorage across refreshes", async () => {
+it(" favorites in localStorage after refreshes", async () => {
     // Render first time
     const { unmount } = render(<MemoryRouter><App /></MemoryRouter>);
 

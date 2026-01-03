@@ -10,7 +10,7 @@
       "shortDescription": "Three-bedroom semi-detached family home near Petts Wood station, with modern interiors and convenient location.",
       "location": "Petts Wood Road, Petts Wood, Orpington BR5",
       "images": ["/images/prop1/prop1-p1.png","/images/prop1/prop1-p2.png","/images/prop1/prop1-p3.png","/images/prop1/prop1-p4.png","/images/prop1/prop1-p5.png","/images/prop1/prop1-p6.png","/images/prop1/prop1-p7.png"],
-      "property_plan":["/images/prop1/prop1-plan.png"],
+      "property_plan":["/images/prop1/prop1-floor-plan.png"],
       "url": "properties/prop1.html",
       "added": {
         "month": "October",
@@ -29,7 +29,7 @@
       "shortDescription": "Two-bedroom garden flat with modern open-plan kitchen/living area and private courtyard garden.",
       "location": "Crofton Road Orpington BR6",
       "images": ["/images/prop2/prop2-p1.png","/images/prop2/prop2-p2.png","/images/prop2/prop2-p3.png","/images/prop2/prop2-p4.png","/images/prop2/prop2-p5.png","/images/prop2/prop2-p6.png","/images/prop2/prop2-p7.png"],
-      "property_plan":["/images/prop1/prop1-plan.png"],
+       "property_plan":["/images/prop2/prop2-floor-plan.png"],
       "url": "properties/prop2.html",
       "added": {
         "month": "September",
@@ -48,7 +48,7 @@
       "shortDescription": "Four-bedroom detached house with garden, garage, and modern interiors, close to schools.",
       "location": "Maple Avenue, Bromley, Orpington BR2 ",
       "images": ["/images/prop3/prop3-p1.png","/images/prop3/prop3-p2.png","/images/prop3/prop3-p3.png","/images/prop3/prop3-p4.png","/images/prop3/prop3-p5.png","/images/prop3/prop3-p6.png","/images/prop3/prop3-p7.png"],
-      "property_plan":["/images/prop1/prop1-plan.png"],
+      "property_plan":["/images/prop3/prop3-floor-plan.png"],
       "url": "properties/prop3.html",
       "added": {
         "month": "August",
@@ -67,7 +67,7 @@
       "shortDescription": "Modern one-bedroom flat with balcony and open-plan living, perfect for first-time buyers.",
      "location": "High Street, Orpington, Kent BR6 ",
      "images": ["/images/prop4/prop4-p1.png","/images/prop4/prop4-p2.png","/images/prop4/prop4-p3.png","/images/prop4/prop4-p4.png","/images/prop4/prop4-p5.png","/images/prop4/prop4-p6.png","/images/prop4/prop4-p7.png"],
-     "property_plan":["/images/prop1/prop1-plan.png"],
+     "property_plan":["/images/prop4/prop4-floor-plan.png"],
       "url": "properties/prop4.html",
       "added": {
         "month": "July",
@@ -86,7 +86,7 @@
       "shortDescription": "Five-bedroom family home with study, landscaped garden, and garage near top schools.",
        "location": "Kingsway, Orpington, Kent BR5 ",
       "images": ["/images/prop5/prop5-p1.png","/images/prop5/prop5-p2.png","/images/prop5/prop5-p3.png","/images/prop5/prop5-p4.png","/images/prop5/prop5-p5.png","/images/prop5/prop5-p6.png","/images/prop5/prop5-p7.png"],
-      "property_plan":["/images/prop1/prop1-plan.png"],
+      "property_plan":["/images/prop5/prop5-floor-plan.png"],
       "url": "properties/prop5.html",
       "added": {
         "month": "June",
@@ -105,7 +105,7 @@
       "shortDescription": "Three-bedroom penthouse with private terrace, modern kitchen, and great transport links.",
        "location": "Station Road, Orpington, Kent BR6 8PQ",
       "images": ["/images/prop6/prop6-p1.png","/images/prop6/prop6-p2.png","/images/prop6/prop6-p3.png","/images/prop6/prop6-p4.png","/images/prop6/prop6-p5.png","/images/prop6/prop6-p6.png","/images/prop6/prop6-p7.png"],
-      "property_plan":["/images/prop1/prop1-plan.png"],
+     "property_plan":["/images/prop6/prop6-floor-plan.png"],
       "url": "properties/prop6.html",
       "added": {
         "month": "May",
@@ -124,7 +124,7 @@
       "shortDescription": "Two-bedroom cottage with open-plan living and private garden, perfect for small families.",
       "location": "Elm Road, Orpington, Kent BR5 4LT",
      "images": ["/images/prop7/prop7-p1.png","/images/prop7/prop7-p2.png","/images/prop7/prop7-p3.png","/images/prop7/prop7-p4.png","/images/prop7/prop7-p5.png","/images/prop7/prop7-p6.png","/images/prop7/prop7-p7.png"],
-     "property_plan":["/images/prop1/prop1-plan.png"],
+     "property_plan":["/images/prop7/prop7-floor-plan.png"],
       "url": "properties/prop7.html",
       "added": {
         "month": "April",

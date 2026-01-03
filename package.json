@@ -1,4 +1,5 @@
 {
+  "homepage": "https://WenukaKithnula.github.io/react-cw-20242072",
   "name": "react-cw-20242072",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +11,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage"
+    "test:ui": "vitest --ui",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -35,10 +38,10 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "@vitejs/plugin-react-swc": "^4.2.2",
-    "@vitest/ui": "^4.0.16",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
     "happy-dom": "^20.0.11",
     "vite": "^7.2.4",

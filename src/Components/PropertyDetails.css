@@ -1,4 +1,4 @@
-/* ================= GLOBAL WRAPPER ================= */
+/*  GLOBAL WRAPPER  */
 .parent-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,7 +7,7 @@
   color: #222;
 }
 
-/* ================= BACK BUTTON ================= */
+/*  BACK BUTTON */
 .back-btn-div {
   margin-bottom: 20px;
 }
@@ -26,7 +26,7 @@
   background-color: #444;
 }
 
-/* ================= HEADINGS ================= */
+/*  HEADINGS  */
 .page-heading {
   text-align: center;
   font-size: 34px;
@@ -42,7 +42,7 @@
   color: #555;
 }
 
-/* ================= IMAGE GALLERY ================= */
+/*  IMAGE GALLERY  */
 .property-images {
   max-width: 900px;
   margin: 0 auto 40px;
@@ -71,7 +71,7 @@
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-/* ================= INFO CARD ================= */
+/*  INFO CARD  */
 .propertyDetails-info {
   max-width: 900px;
   margin: 0 auto;
@@ -81,7 +81,7 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
-/* ================= PRICE ================= */
+/* PRICE  */
 .propertyDeatil-price {
   font-size: 28px;
   font-weight: 700;
@@ -89,7 +89,7 @@
   color: #ff8400;
 }
 
-/* ================= META DETAILS ================= */
+/*  META DETAILS  */
 .property-meta {
   display: flex;
   flex-wrap: wrap;
@@ -117,7 +117,7 @@
   font-weight: 700;
 }
 
-/* ================= SHORT DESCRIPTION ================= */
+/*  SHORT DESCRIPTION  */
 .mini-descripstion {
   margin-bottom: 30px;
   padding: 16px;
@@ -127,7 +127,7 @@
   border-radius: 4px;
 }
 
-/* ================= TABS ================= */
+/* TABS */
 .tab-section {
   margin-top: 20px;
 }
@@ -156,19 +156,19 @@
   border-radius: 0 6px 6px 6px;
 }
 
-/* ================= DESCRIPTION ================= */
+/*  DESCRIPTION  */
 .long-description {
   line-height: 1.8;
   font-size: 16px;
 }
 
-/* ================= MAP ================= */
+/* MAP  */
 .property-map h3 {
   margin-bottom: 12px;
   font-size: 20px;
 }
 
-/* ================= RESPONSIVE ================= */
+/*  RESPONSIVE  */
 @media (max-width: 768px) {
   .page-heading {
     font-size: 28px;

@@ -46,7 +46,7 @@ function SearchForm({ setSearchCriteria }) {
       }}
     >
       <div className="search-container">
-        <h1>HOMIq </h1>
+        <h1 className="search-form-logo-name">Homiq </h1>
 
         <div className="flex-container-1">
           <div className="location-value">

@@ -58,10 +58,11 @@ function DisplayProp({
         {/* FILTERED PROPERTIES */}
         <div className="filtered-property-main">
           <div
-            className="phone-view-add-fav"
+            className="phone-view-add-fav drag-drop-text-msg"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
+            
           >
             Drag to add to favorite
           </div>
@@ -93,7 +94,7 @@ function DisplayProp({
             <h3>Favorites Properties</h3>
 
             {favoriteProperties.length === 0 ? (
-              <p>
+              <p className="drag-drop-text-msg">
                 No favorite properties yet <br /> drag property card to add
               </p>
             ) : (
@@ -122,7 +123,7 @@ function DisplayProp({
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
               >
-                <p>Drag and drop to remove from favorites</p>
+                <p className="drag-drop-text-msg">Drag and drop to remove from favorites</p>
               </div>
             </div>
           )}
