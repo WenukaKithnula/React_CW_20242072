@@ -35,7 +35,7 @@ function PropCard({
           <div className="property-type">
             <div className="type">{type}</div>
             <div className="bedrooms">
-              <img src="images/Icons/Bed-icon.png" alt="Bed_icon" className="icon" />
+              <img src="/images/Icons/Bed-icon.png" alt="Bed_icon" className="icon" />
               {bedrooms}
             </div>
           </div>
