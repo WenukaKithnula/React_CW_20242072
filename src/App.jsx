@@ -26,6 +26,7 @@ function App() {
   });
 
   const [filteredProperties, setFilteredProperties] = useState([]);
+
   useEffect(() => {
     localStorage.setItem(
       "favoriteProperties",
@@ -33,20 +34,20 @@ function App() {
     );
   }, [favoriteProperties]);
 
+  // ✅ Load JSON from public folder
   useEffect(() => {
     fetch("/data/properties.json")
       .then((res) => res.json())
       .then((data) => {
         setProperties(data.properties);
-        setFilteredProperties(data.properties); // optional: show all initially
+        setFilteredProperties(data.properties);
       })
       .catch((err) => console.error("Error loading properties:", err));
   }, []);
 
-  // ✅ FILTERING LOGIC
   const filterProperties = (criteria) => {
     const results = properties.filter((property) => {
-      /* ---------------- POSTCODE / LOCATION ---------------- */
+      // Postcode filter
       if (
         criteria.postcode?.trim() &&
         !property.location
@@ -56,7 +57,7 @@ function App() {
         return false;
       }
 
-      /* ---------------- PROPERTY TYPE ---------------- */
+      // Type filter
       if (
         criteria.type !== "any" &&
         property.type.toLowerCase() !== criteria.type.toLowerCase()
@@ -64,7 +65,7 @@ function App() {
         return false;
       }
 
-      /* ---------------- PRICE RANGE ---------------- */
+      // Price filter
       const minPrice =
         criteria.minPrice === "no min" || criteria.minPrice === ""
           ? 0
@@ -74,10 +75,9 @@ function App() {
           ? Infinity
           : Number(criteria.maxPrice);
 
-      if (property.price < minPrice) return false;
-      if (property.price > maxPrice) return false;
+      if (property.price < minPrice || property.price > maxPrice) return false;
 
-      /* ---------------- BEDROOMS ---------------- */
+      // Bedrooms filter
       const minBeds =
         criteria.minBedrooms === "no min" || criteria.minBedrooms === ""
           ? 0
@@ -87,54 +87,40 @@ function App() {
           ? Infinity
           : Number(criteria.maxBedrooms);
 
-      if (property.bedrooms < minBeds) return false;
-      if (property.bedrooms > maxBeds) return false;
+      if (property.bedrooms < minBeds || property.bedrooms > maxBeds) return false;
 
-      /* ---------------- DATE RANGE ---------------- */
+      // Date filter
       if (criteria.dateFrom || criteria.dateTo) {
         const propertyDate = new Date(
           `${property.added.month} ${property.added.day}, ${property.added.year}`
         );
-
-        if (criteria.dateFrom && propertyDate < criteria.dateFrom) {
-          return false;
-        }
-
-        if (criteria.dateTo && propertyDate > criteria.dateTo) {
-          return false;
-        }
+        if (criteria.dateFrom && propertyDate < criteria.dateFrom) return false;
+        if (criteria.dateTo && propertyDate > criteria.dateTo) return false;
       }
 
-      /* ---------------- PASSED ALL CONDITIONS ---------------- */
       return true;
     });
 
     setFilteredProperties(results);
   };
 
-  //  CALL FILTER WHEN SEARCH CRITERIA CHANGES
+  // Run filter whenever criteria changes
   useEffect(() => {
     filterProperties(searchCriteria);
   }, [searchCriteria]);
 
-  //  FAVORITES ARRAY LOGIC
-
+  // Favorites logic
   const addToFavorites = (property) => {
     setFavoriteProperties((prev) => {
       const exists = prev.some((f) => f.id === property.id);
-      if (exists) {
-        alert("Already in favorites");
-        return prev;
-      }
+      if (exists) return prev;
       return [...prev, property];
     });
   };
   const removeFromFavorites = (propertyId) => {
     setFavoriteProperties((prev) => prev.filter((p) => p.id !== propertyId));
   };
-  const clearFavorites = () => {
-    setFavoriteProperties([]);
-  };
+  const clearFavorites = () => setFavoriteProperties([]);
 
   return (
     <Routes>
@@ -142,7 +128,7 @@ function App() {
         path="/"
         element={
           <>
-            <Logo></Logo>
+            <Logo />
             <SearchForm setSearchCriteria={setSearchCriteria} />
             <DisplayProp
               filteredProperties={filteredProperties}
@@ -154,8 +140,10 @@ function App() {
           </>
         }
       />
+
+      {/* ✅ Use HashRouter-friendly path without .html */}
       <Route
-        path="/properties/:id.html"
+        path="/properties/:id"
         element={
           <PropertyDetails
             properties={properties}
