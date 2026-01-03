@@ -57,15 +57,16 @@ function DisplayProp({
       <div className="gallery">
         {/* FILTERED PROPERTIES */}
         <div className="filtered-property-main">
-          <div
-            className="phone-view-add-fav drag-drop-text-msg"
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            
-          >
-            Drag to add to favorite
-          </div>
+         {filteredProperties.length > 0 && (
+            <div
+              className="phone-view-add-fav drag-drop-text-msg"
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+            >
+              Drag to add to favorite
+            </div>
+          )}
 
           <h1>{filteredProperties.length} Results Found</h1>
           <div className="filtered-property">
