@@ -18,7 +18,7 @@
   flex: 4; /* take most horizontal space */
   border-radius: 20px;
   
-  background-color: rgba(255, 255, 255, 0.537);
+  background-color: rgba(218, 214, 214, 0.188);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 .drag-drop-text-msg{
@@ -42,7 +42,7 @@
 .filtered-property {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 30px;
 
   justify-content: space-evenly;
 }
