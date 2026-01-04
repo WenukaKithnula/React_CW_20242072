@@ -10,12 +10,13 @@
                    script-src 'self' 'unsafe-inline' 'unsafe-eval'; 
                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
                    img-src 'self' data: https:; 
-                   connect-src 'self'; 
-                   frame-src https://www.google.com http://googleusercontent.com;">
+                   font-src 'self' https://fonts.gstatic.com;
+                   connect-src 'self' ws: localhost:* http://localhost:* https://*; 
+                   frame-src 'self' https://www.google.com https://*.googleusercontent.com;">
 
     <title>react-cw-20242072</title>
-    <script type="module" crossorigin src="/React_CW_20242072/assets/index-xClEtJH5.js"></script>
-    <link rel="stylesheet" crossorigin href="/React_CW_20242072/assets/index-u4_j1NoR.css">
+    <script type="module" crossorigin src="/React_CW_20242072/assets/index-djI6ptim.js"></script>
+    <link rel="stylesheet" crossorigin href="/React_CW_20242072/assets/index-DxjToPSf.css">
   </head>
   <body>
     <div id="root"></div>
