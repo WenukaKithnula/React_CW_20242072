@@ -68,7 +68,7 @@ function DisplayProp({
             </div>
           )}
 
-          <h1>{filteredProperties.length} Results Found</h1>
+          <p>{filteredProperties.length} Results Found</p>
           <div className="filtered-property">
             {filteredProperties.map((property) => (
               <PropCard
