@@ -18,7 +18,7 @@ function SearchForm({ setSearchCriteria }) {
     postcode: "",
   });
 
-  /* ---------- OPTIONS ---------- */
+  /*  OPTIONS  */
   const typeOptions = [
     { value: "any", label: "Any" },
     { value: "House", label: "House" },

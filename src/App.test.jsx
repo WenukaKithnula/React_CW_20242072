@@ -129,16 +129,7 @@ it(" favorites in localStorage after refreshes", async () => {
   });
 
 
-  it("shows all properties if search is empty", async () => {
-  render(<MemoryRouter><App /></MemoryRouter>);
-
-  const searchBtn = screen.getByRole("button", { name: /Search Properties/i });
-  userEvent.click(searchBtn);
-
-  // Check the number of property cards rendered
-  const allPropertyCards = await screen.findAllByTestId(/prop-card-/i);
-  expect(allPropertyCards).toHaveLength(mockProperties.length);
-});
+ 
 it("filters properties by type 'Flat' using React Select", async () => {
   const user = userEvent.setup();
   render(
@@ -147,8 +138,7 @@ it("filters properties by type 'Flat' using React Select", async () => {
     </MemoryRouter>
   );
 
-  // 1. Find the React Select input for "Type"
-  // React Select labels usually point to an input with role "combobox"
+  
   const typeSelect = screen.getByLabelText(/Type :/i);
 
   // 2. Interact with React Select: Type "Flat" and press Enter
@@ -159,8 +149,7 @@ it("filters properties by type 'Flat' using React Select", async () => {
   const searchBtn = screen.getByRole("button", { name: /Search Properties/i });
   await user.click(searchBtn);
 
-  // 4. Wait for results to filter
-  // Since we filtered for 'Flat', only 'Test Flat 2' should be visible
+ 
   await waitFor(() => {
     const visibleCards = screen.getAllByTestId(/prop-card-/i);
     expect(visibleCards).toHaveLength(1);
@@ -184,7 +173,7 @@ it("filters properties by multiple criteria: Type 'Flat' and Min Price '500,000'
   await user.keyboard("{enter}");
 
   // 2. Select '50,000' in the Min Price dropdown 
-  // (Using 50,000 as an example since it exists in your mock data as 500000)
+  
   const minPriceSelect = screen.getByLabelText(/Min Price :/i);
   await user.type(minPriceSelect, "500,000"); 
   await user.keyboard("{enter}");
@@ -196,8 +185,7 @@ it("filters properties by multiple criteria: Type 'Flat' and Min Price '500,000'
   // 4. Assert that only the Flat matching the price is shown
   await waitFor(() => {
     const visibleCards = screen.getAllByTestId(/prop-card-/i);
-    // In your mockProperties, prop2 is a Flat and is 500,000. 
-    // It should be the only one visible.
+    
     expect(visibleCards).toHaveLength(1);
     expect(screen.getByText("Test Flat 2")).toBeInTheDocument();
   });

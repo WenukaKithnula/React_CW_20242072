@@ -1,4 +1,4 @@
-/* ------------------ GALLERY ------------------ */
+/*  GALLERY  */
 .gallery {
   display: flex;
   font-family: sans-serif;
@@ -6,20 +6,26 @@
   padding: 10px;
   border: 1px solid gray;
   background-color: rgb(255, 255, 255);
-  align-items: flex-start; /* align left and right top edges */
+  align-items: flex-start; 
 }
 .p-list-header{
   text-align: center;
   font-style: italic;
 }
 
-/* ------------------ LEFT ------------------ */
+/*  LEFT  */
 .filtered-property-main {
-  flex: 4; /* take most horizontal space */
+  flex: 4; 
   border-radius: 20px;
   
   background-color: rgba(218, 214, 214, 0.188);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.available-prop-num{
+  font-size: 18px;
+  color: blue;
+  font-family: sans-serif;
+  margin-left: 10px;
 }
 .drag-drop-text-msg{
   font-family: sans-serif;
@@ -47,7 +53,7 @@
   justify-content: space-evenly;
 }
 
-/* ------------------ RIGHT (Favorites + Drag/Remove stacked vertically) ------------------ */
+/*  RIGHT (Favorites + Drag/Remove stacked vertically)  */
 .right-side {
   display: flex;
   align-self: flex-start;
@@ -83,8 +89,8 @@
   width: 100%;
   text-align: center;
   position: sticky;
-  top: 10px; /* <-- add this! */
-  z-index: 10; /* optional, ensures it stays above other elements */
+  top: 10px; 
+  z-index: 10; 
 }
 
 .remove-fav {
@@ -97,7 +103,7 @@
   border: 2px solid pink;
 }
 
-/* ------------------ VIEW FAVORITES BUTTON ------------------ */
+/*  VIEW FAVORITES BUTTON */
 .view-fav-btn {
   display: none;
 }
@@ -111,7 +117,7 @@
 }
 
 
-/* ------------------ MOBILE ------------------ */
+/*  MOBILE  */
 @media (max-width: 770px) {
   .gallery {
     flex-direction: column;

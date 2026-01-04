@@ -70,7 +70,7 @@ function DisplayProp({
 
           {filteredProperties.length > 0 ? (
             <>
-              <p>{filteredProperties.length} Results Found</p>
+              <p className="available-prop-num"> Available Properties({filteredProperties.length})</p>
               <h1 className="p-list-header">Property List</h1>
             </>
           ) : (
