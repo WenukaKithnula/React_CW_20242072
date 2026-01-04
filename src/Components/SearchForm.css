@@ -3,98 +3,66 @@
   border: 2px solid rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f3efe8;
-
 }
-.search-form-logo-name{
+
+.search-form-logo-name {
   font-style: italic;
-  
   font-family: 'Poppins', 'Segoe UI', sans-serif;
   font-size: 2rem;
   color: rgb(10, 60, 187);
   font-weight: 700;
   letter-spacing: 1px;
-  
-  
 }
 
 /* Container for search form */
 .search-container {
   width: 80%;
-  
   margin-inline: auto;
   margin-top: 50px;
   margin-bottom: 50px;
-  padding: 20px;
+  padding: 30px;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* Location Input */
-.location-value {
- 
-  padding: 10px;
-  width: 250px;
-}
-
-/* Flex container row 1 */
+/* Flex container row 1 (Laptop) */
 .flex-container-1 {
   display: flex;
-  
   margin: 20px 0;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-wrap: nowrap;
   gap: 20px;
+  
+  
+  
 }
 
-/* Flex container row 2 */
+.location-value { flex: 1.5; }
+.property-type-search { flex: 1; }
+.property-date { flex: 2; display: flex; gap: 12px; }
+
+/* Flex container row 2 (Laptop - WIDE VIEW) */
 .flex-container-2 {
   display: flex;
-  
   margin: 20px 0;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 40px; /* Space between Price group and Bedroom group */
 }
 
-/* Property Type Dropdown */
-.property-type-search {
-  width: 250px;
- 
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-/* Property Date Pickers */
-.property-date {
-  
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.property-date > div {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-/* Property Price Inputs */
 .property-price,
 .property-bedroom {
   display: flex;
-  
-  gap: 12px;
-  padding: 10px;
-  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1; /* This makes both sections grow equally and take full width */
 }
 
-.property-price > div,
-.property-bedroom > div {
+.input-box {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  flex: 1; /* Makes Min/Max boxes equal width within their group */
 }
 
 /* Labels */
@@ -104,23 +72,13 @@ label {
   margin-bottom: 4px;
 }
 
-/* React Widgets Styling */
-.rw-widget .rw-input {
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 0.9rem;
-  width: 200px;
-  box-sizing: border-box;
-}
-
 /* DatePicker Styling */
 .react-datepicker-wrapper input {
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 0.9rem;
-  width: 200px;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -128,73 +86,43 @@ label {
 .Search-btn {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .Search-btn button {
-  padding: 10px 100px;
-  font-size: 1rem;
+  padding: 12px 100px;
+  font-size: 1.1rem;
   border-radius: 5px;
   border: 1px solid #e0f80d;
   background-color: #9cf29883;
   cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .Search-btn button:hover {
   background-color: #afeba5;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Optional: slightly lifts the button up */
   transform: translateY(-2px);
-  
-}
-.input-location{
-  width:  100%;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
- 
-}
-/* Location Input (MUI TextField) */
-.input-location {
-  width: 100%;          
-  height: 40px;         
-  border-radius: 5px;   
-  font-size: 14px;   
-  box-sizing: border-box;
 }
 
-
-.input-location .MuiOutlinedInput-root {
-  border-radius: 5px;       
-  font-size: 14px;
-}
-
-/* For small screens (responsive) */
-@media (max-width: 900px) {
-  .input-location {
-    width: 100%;
-  }
-}
-
-/* Responsive */
-
+/* ------------------------------------------------ */
+/* MOBILE VIEW (RETAINED FROM YOUR ORIGINAL CODE) */
+/* ------------------------------------------------ */
 @media (max-width: 900px) {
   .flex-container-1,
   .flex-container-2 {
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
   }
- 
 
-  /* Full-width blocks */
   .property-type-search,
   .location-value {
     width: 90%;
     max-width: 350px;
   }
 
-  /* ✅ DATE: keep From & To in one line */
   .property-date {
     flex-direction: row;
     justify-content: space-between;
@@ -203,11 +131,6 @@ label {
     gap: 10px;
   }
 
-  .property-date > div {
-    flex: 1;
-  }
-
-  /* ✅ PRICE & BEDROOM: same line */
   .property-price,
   .property-bedroom {
     flex-direction: row;
@@ -215,21 +138,11 @@ label {
     width: 90%;
     max-width: 350px;
     gap: 10px;
+    flex: none; /* Disables the laptop grow logic on mobile */
   }
 
-  .property-price > div,
-  .property-bedroom > div {
-    flex: 1;
-  }
-
-  /* Inputs full width */
-  .rw-widget .rw-input,
-  .react-datepicker-wrapper input {
-    width: 100%;
-  }
-  .search-container{
-    width: 90%;
-  }
- 
+  .input-box { flex: 1; }
   
+  .react-datepicker-wrapper input { width: 100%; }
+  .search-container { width: 95%; }
 }

@@ -11,6 +11,10 @@
 .back-btn-div {
   margin-bottom: 20px;
 }
+.property-details-image-conatiner{
+   background-color: #f2f2f2f9;
+  border-radius: 10px;
+}
 
 .back-btn {
   padding: 10px 18px;
@@ -122,7 +126,7 @@
 .mini-descripstion {
   margin-bottom: 30px;
   padding: 16px;
-  background-color: #f6f6f6;
+  background-color: #ffffff;
   border-left: 4px solid #ff8400;
   line-height: 1.7;
   border-radius: 4px;

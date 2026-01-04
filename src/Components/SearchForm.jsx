@@ -1,36 +1,65 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-import { DropdownList, NumberPicker } from "react-widgets";
+import Select from "react-select";
 import TextField from "@mui/material/TextField";
 
 import "react-datepicker/dist/react-datepicker.css";
-import "react-widgets/styles.css";
 import "./SearchForm.css";
 
 function SearchForm({ setSearchCriteria }) {
   const [formValues, setFormValues] = useState({
     type: "any",
-    minPrice: "no min",
-    maxPrice: "no max",
-    minBedrooms: "no min",
-    maxBedrooms: "no max",
+    minPrice: null,
+    maxPrice: null,
+    minBedrooms: null,
+    maxBedrooms: null,
     dateFrom: null,
     dateTo: null,
     postcode: "",
   });
 
-  const bedroomOptions = ["no min", 1, 2, 3, 4, 5];
-  const maxBedroomOptions = ["no max", 1, 2, 3, 4, 5];
+  /* ---------- OPTIONS ---------- */
+  const typeOptions = [
+    { value: "any", label: "Any" },
+    { value: "House", label: "House" },
+    { value: "Flat", label: "Flat" },
+  ];
 
-  const minPriceOptions = ["no min", 50000, 100000, 200000, 300000, 500000];
+  const minPriceOptions = [
+    { value: null, label: "No Min" },
+    { value: 50000, label: "50,000" },
+    { value: 100000, label: "100,000" },
+    { value: 200000, label: "200,000" },
+    { value: 300000, label: "300,000" },
+    { value: 500000, label: "500,000" },
+  ];
+
   const maxPriceOptions = [
-    "no max",
-    100000,
-    200000,
-    300000,
-    500000,
-    750000,
-    1000000,
+    { value: null, label: "No Max" },
+    { value: 100000, label: "100,000" },
+    { value: 200000, label: "200,000" },
+    { value: 300000, label: "300,000" },
+    { value: 500000, label: "500,000" },
+    { value: 750000, label: "750,000" },
+    { value: 1000000, label: "1,000,000" },
+  ];
+
+  const minBedroomOptions = [
+    { value: null, label: "No Min" },
+    { value: 1, label: "1" },
+    { value: 2, label: "2" },
+    { value: 3, label: "3" },
+    { value: 4, label: "4" },
+    { value: 5, label: "5" },
+  ];
+
+  const maxBedroomOptions = [
+    { value: null, label: "No Max" },
+    { value: 1, label: "1" },
+    { value: 2, label: "2" },
+    { value: 3, label: "3" },
+    { value: 4, label: "4" },
+    { value: 5, label: "5" },
   ];
 
   const handleSearchClick = () => {
@@ -38,65 +67,49 @@ function SearchForm({ setSearchCriteria }) {
   };
 
   return (
-    <form
-      className="Main-form"
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSearchClick();
-      }}
-    >
-      <div className="search-container">
-        <h1 className="search-form-logo-name">Homiq </h1>
+    <div className="Main-form">
+      <form className="search-container" onSubmit={(e) => { e.preventDefault(); handleSearchClick(); }}>
+        <h1 className="search-form-logo-name">Homiq</h1>
 
         <div className="flex-container-1">
           <div className="location-value">
-            <label htmlFor="label-location">Postcode :</label>
+            <label htmlFor="postcode-input">Postcode :</label>
             <TextField
-              id="label-location"
-              className="input-location"
-              variant="outlined"
+              id="postcode-input"
               size="small"
-               aria-label="Search Location"
               value={formValues.postcode}
-              onChange={(e) =>
-                setFormValues({ ...formValues, postcode: e.target.value })
-              }
+              onChange={(e) => setFormValues({ ...formValues, postcode: e.target.value })}
               placeholder="Enter Location"
               fullWidth
             />
           </div>
 
           <div className="property-type-search">
-            <label>Type :</label>
-            <DropdownList
-              data={["any", "House", "Flat"]}
-              value={formValues.type}
-              aria-label="Property Type"
-              onChange={(val) => setFormValues({ ...formValues, type: val })}
+            <label htmlFor="type-select">Type :</label>
+            <Select
+              inputId="type-select"
+              options={typeOptions}
+              value={typeOptions.find((o) => o.value === formValues.type)}
+              onChange={(opt) => setFormValues({ ...formValues, type: opt.value })}
             />
           </div>
 
           <div className="property-date">
-            <div className="from">
-              <label>Date From :</label>
+            <div>
+              <label htmlFor="date-from">Date From :</label>
               <DatePicker
+                id="date-from"
                 selected={formValues.dateFrom}
-                aria-label="Date From"
-                onChange={(date) =>
-                  setFormValues({ ...formValues, dateFrom: date })
-                }
+                onChange={(date) => setFormValues({ ...formValues, dateFrom: date })}
                 placeholderText="Start date"
               />
             </div>
-
-            <div className="to">
-              <label>Date To :</label>
+            <div>
+              <label htmlFor="date-to">Date To :</label>
               <DatePicker
+                id="date-to"
                 selected={formValues.dateTo}
-                aria-label="Date To"
-                onChange={(date) =>
-                  setFormValues({ ...formValues, dateTo: date })
-                }
+                onChange={(date) => setFormValues({ ...formValues, dateTo: date })}
                 placeholderText="End date"
               />
             </div>
@@ -105,53 +118,43 @@ function SearchForm({ setSearchCriteria }) {
 
         <div className="flex-container-2">
           <div className="property-price">
-            <div>
-              <label>Min Price :</label>
-              <DropdownList
-                data={minPriceOptions}
-                value={formValues.minPrice}
-                 aria-label="Min Price"
-                onChange={(val) =>
-                  setFormValues({ ...formValues, minPrice: val })
-                }
+            <div className="input-box">
+              <label htmlFor="min-price">Min Price :</label>
+              <Select
+                inputId="min-price"
+                options={minPriceOptions}
+                value={minPriceOptions.find((o) => o.value === formValues.minPrice)}
+                onChange={(opt) => setFormValues({ ...formValues, minPrice: opt.value })}
               />
             </div>
-
-            <div>
-              <label>Max Price :</label>
-              <DropdownList
-                data={maxPriceOptions}
-                aria-label="Max Price"
-                value={formValues.maxPrice}
-                onChange={(val) =>
-                  setFormValues({ ...formValues, maxPrice: val })
-                }
+            <div className="input-box">
+              <label htmlFor="max-price">Max Price :</label>
+              <Select
+                inputId="max-price"
+                options={maxPriceOptions}
+                value={maxPriceOptions.find((o) => o.value === formValues.maxPrice)}
+                onChange={(opt) => setFormValues({ ...formValues, maxPrice: opt.value })}
               />
             </div>
           </div>
 
           <div className="property-bedroom">
-            <div>
-              <label>Min Rooms :</label>
-              <DropdownList
-                data={bedroomOptions}
-                value={formValues.minBedrooms}
-                aria-label="Min Rooms"
-                onChange={(val) =>
-                  setFormValues({ ...formValues, minBedrooms: val })
-                }
+            <div className="input-box">
+              <label htmlFor="min-rooms">Min Rooms :</label>
+              <Select
+                inputId="min-rooms"
+                options={minBedroomOptions}
+                value={minBedroomOptions.find((o) => o.value === formValues.minBedrooms)}
+                onChange={(opt) => setFormValues({ ...formValues, minBedrooms: opt.value })}
               />
             </div>
-
-            <div>
-              <label>Max Rooms :</label>
-              <DropdownList
-                data={maxBedroomOptions}
-                value={formValues.maxBedrooms}
-                aria-label="Max Rooms"
-                onChange={(val) =>
-                  setFormValues({ ...formValues, maxBedrooms: val })
-                }
+            <div className="input-box">
+              <label htmlFor="max-rooms">Max Rooms :</label>
+              <Select
+                inputId="max-rooms"
+                options={maxBedroomOptions}
+                value={maxBedroomOptions.find((o) => o.value === formValues.maxBedrooms)}
+                onChange={(opt) => setFormValues({ ...formValues, maxBedrooms: opt.value })}
               />
             </div>
           </div>
@@ -160,8 +163,8 @@ function SearchForm({ setSearchCriteria }) {
         <div className="Search-btn">
           <button type="submit">Search Properties</button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

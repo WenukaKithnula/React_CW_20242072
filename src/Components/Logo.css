@@ -1,3 +1,4 @@
+/* Css for the mian conatiner of the logo */
 .logo-icon-container{
     background-color: red;
     display: flex;
@@ -11,16 +12,18 @@
 .logo-icon-div{
      max-width: 200px;
      
-     
+   /* take 100% of the widght from the parent div */  
 }
 .logo-icon{
     width: 100%;
     
 }
+/* Css for the name of the logo on top */
 .logo-word{
    margin-bottom: 10px;
     font-family: sans-serif;
     font-weight: bold;
+    font-size: 20px;
     
     
 }

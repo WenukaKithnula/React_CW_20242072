@@ -14,16 +14,17 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const [searchCriteria, setSearchCriteria] = useState({
-    type: "any",
-    minPrice: "",
-    maxPrice: "",
-    minBedrooms: "",
-    maxBedrooms: "",
-    dateFrom: null,
-    dateTo: null,
-    postcode: "",
-  });
+  // Inside App.js
+const [searchCriteria, setSearchCriteria] = useState({
+  type: "any",
+  minPrice: null,      
+  maxPrice: null,      
+  minBedrooms: null,   
+  maxBedrooms: null,   
+  dateFrom: null,
+  dateTo: null,
+  postcode: "",
+});
 
   const [filteredProperties, setFilteredProperties] = useState([]);
   useEffect(() => {
@@ -43,7 +44,7 @@ function App() {
       .catch((err) => console.error("Error loading properties:", err));
   }, []);
 
-  // ✅ FILTERING LOGIC
+  
   const filterProperties = (criteria) => {
     const results = properties.filter((property) => {
       /*  POSTCODE / LOCATION  */
@@ -66,11 +67,11 @@ function App() {
 
       /*  PRICE RANGE  */
       const minPrice =
-        criteria.minPrice === "no min" || criteria.minPrice === ""
+        criteria.minPrice === null || criteria.minPrice === ""
           ? 0
           : Number(criteria.minPrice);
       const maxPrice =
-        criteria.maxPrice === "no max" || criteria.maxPrice === ""
+        criteria.maxPrice === null || criteria.maxPrice === ""
           ? Infinity
           : Number(criteria.maxPrice);
 
@@ -79,11 +80,11 @@ function App() {
 
       /*  BEDROOMS */
       const minBeds =
-        criteria.minBedrooms === "no min" || criteria.minBedrooms === ""
+        criteria.minBedrooms === null || criteria.minBedrooms === ""
           ? 0
           : Number(criteria.minBedrooms);
       const maxBeds =
-        criteria.maxBedrooms === "no max" || criteria.maxBedrooms === ""
+        criteria.maxBedrooms === null || criteria.maxBedrooms === ""
           ? Infinity
           : Number(criteria.maxBedrooms);
 
@@ -123,7 +124,7 @@ function App() {
     setFavoriteProperties((prev) => {
       const exists = prev.some((f) => f.id === property.id);
       if (exists) {
-        alert("Already in favorites");
+        
         return prev;
       }
       return [...prev, property];

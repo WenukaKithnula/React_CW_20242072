@@ -132,9 +132,12 @@
   color: white;
 }
 
+
+
 .add-to-fav-btn:hover {
   background: #005fa3;
 }
+/* Css for the card for smaller devices */
 @media(max-width:400px){
   .card{
     width: 270px;

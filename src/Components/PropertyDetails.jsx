@@ -47,16 +47,18 @@ function PropertyDetails({ properties }) {
         <div className="back-to-mian-logo"></div>
       </div>
 
-      <h1 className="page-heading">Property Details</h1>
+      <div className="property-details-image-conatiner">
+        <h1 className="page-heading">Property Details</h1>
 
-      <div className="property-location">{location}</div>
+        <div className="property-location">{location}</div>
 
-      <div className="property-images">
-        <ImageGallery
-          items={GalleryImages}
-          showPlayButton={false}
-          thumbnailPosition="bottom"
-        />
+        <div className="property-images">
+          <ImageGallery
+            items={GalleryImages}
+            showPlayButton={false}
+            thumbnailPosition="bottom"
+          />
+        </div>
       </div>
 
       <div className="propertyDetails-info">

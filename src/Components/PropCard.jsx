@@ -86,6 +86,7 @@ function PropCard({
             onClick={handleFavoriteClick}
             className="add-to-fav-btn"
             data-testid={`add-fav-${id}`}
+            
           >
             {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
           </button>
