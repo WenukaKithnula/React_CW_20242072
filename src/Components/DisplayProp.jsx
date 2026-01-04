@@ -57,7 +57,7 @@ function DisplayProp({
       <div className="gallery">
         {/* FILTERED PROPERTIES */}
         <div className="filtered-property-main">
-         {filteredProperties.length > 0 && (
+          {filteredProperties.length > 0 && (
             <div
               className="phone-view-add-fav drag-drop-text-msg"
               onDrop={handleDrop}
@@ -68,7 +68,16 @@ function DisplayProp({
             </div>
           )}
 
-          <p>{filteredProperties.length} Results Found</p>
+          {filteredProperties.length > 0 ? (
+            <>
+              <p>{filteredProperties.length} Results Found</p>
+              <h1 className="p-list-header">Property List</h1>
+            </>
+          ) : (
+            <p className="no-results">
+              No properties match your search criteria.
+            </p>
+          )}
           <div className="filtered-property">
             {filteredProperties.map((property) => (
               <PropCard
@@ -96,7 +105,7 @@ function DisplayProp({
 
             {favoriteProperties.length === 0 ? (
               <p className="drag-drop-text-msg">
-                No favorite properties yet <br /> drag property card to add
+                 Drag here to add to favorites
               </p>
             ) : (
               <button onClick={clearFavorites} className="clear-btn">
@@ -124,7 +133,9 @@ function DisplayProp({
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
               >
-                <p className="drag-drop-text-msg">Drag and drop to remove from favorites</p>
+                <p className="drag-drop-text-msg">
+                  Drag and drop to remove from favorites
+                </p>
               </div>
             </div>
           )}

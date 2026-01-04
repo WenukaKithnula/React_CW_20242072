@@ -51,7 +51,7 @@
   border-radius: 8px;
 }
 
-/* IMPORTANT: do NOT shrink images */
+
 .property-images .image-gallery-slide img {
   width: 100%;
   height: auto;
@@ -76,8 +76,9 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 28px;
-  background-color: #ffffff;
+  background-color: #f2f2f2f9;
   border-radius: 8px;
+  border: 1px solid black;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 

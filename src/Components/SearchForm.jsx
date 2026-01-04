@@ -50,7 +50,7 @@ function SearchForm({ setSearchCriteria }) {
 
         <div className="flex-container-1">
           <div className="location-value">
-            <label htmlFor="label-location">Search Location :</label>
+            <label htmlFor="label-location">Postcode :</label>
             <TextField
               id="label-location"
               className="input-location"

@@ -135,15 +135,18 @@ label {
   padding: 10px 100px;
   font-size: 1rem;
   border-radius: 5px;
-  border: 2px solid #e0f80d;
-  background-color: #2bcc2383;
+  border: 1px solid #e0f80d;
+  background-color: #9cf29883;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .Search-btn button:hover {
-  background-color: #62f44b;
-  color: rgb(245, 245, 240);
+  background-color: #afeba5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Optional: slightly lifts the button up */
+  transform: translateY(-2px);
+  
 }
 .input-location{
   width:  100%;
@@ -161,7 +164,7 @@ label {
   box-sizing: border-box;
 }
 
-/* Override MUI input root (optional if you want exact style) */
+
 .input-location .MuiOutlinedInput-root {
   border-radius: 5px;       
   font-size: 14px;

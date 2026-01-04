@@ -46,7 +46,7 @@ function App() {
   // ✅ FILTERING LOGIC
   const filterProperties = (criteria) => {
     const results = properties.filter((property) => {
-      /* ---------------- POSTCODE / LOCATION ---------------- */
+      /*  POSTCODE / LOCATION  */
       if (
         criteria.postcode?.trim() &&
         !property.location
@@ -56,7 +56,7 @@ function App() {
         return false;
       }
 
-      /* ---------------- PROPERTY TYPE ---------------- */
+      /*  PROPERTY TYPE  */
       if (
         criteria.type !== "any" &&
         property.type.toLowerCase() !== criteria.type.toLowerCase()
@@ -64,7 +64,7 @@ function App() {
         return false;
       }
 
-      /* ---------------- PRICE RANGE ---------------- */
+      /*  PRICE RANGE  */
       const minPrice =
         criteria.minPrice === "no min" || criteria.minPrice === ""
           ? 0
@@ -77,7 +77,7 @@ function App() {
       if (property.price < minPrice) return false;
       if (property.price > maxPrice) return false;
 
-      /* ---------------- BEDROOMS ---------------- */
+      /*  BEDROOMS */
       const minBeds =
         criteria.minBedrooms === "no min" || criteria.minBedrooms === ""
           ? 0
@@ -90,7 +90,7 @@ function App() {
       if (property.bedrooms < minBeds) return false;
       if (property.bedrooms > maxBeds) return false;
 
-      /* ---------------- DATE RANGE ---------------- */
+      /* DATE RANGE  */
       if (criteria.dateFrom || criteria.dateTo) {
         const propertyDate = new Date(
           `${property.added.month} ${property.added.day}, ${property.added.year}`
