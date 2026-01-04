@@ -105,7 +105,7 @@ function DisplayProp({
 
             {favoriteProperties.length === 0 ? (
               <p className="drag-drop-text-msg">
-                 Drag here to add to favorites
+                No favorite properties yet <br /> drag property card to add
               </p>
             ) : (
               <button onClick={clearFavorites} className="clear-btn">

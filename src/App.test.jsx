@@ -53,7 +53,7 @@ describe("Property App Critical Functions", () => {
     const img = await screen.findByTestId(`prop-img-${property.id}`);
     expect(img).toBeInTheDocument();
     
-    // ✅ prepend BASE_URL for test expectation
+    
     expect(img).toHaveAttribute("src", `${base}${property.images[0]}`);
   }
 });
@@ -102,7 +102,7 @@ describe("Property App Critical Functions", () => {
 
 
 it(" favorites in localStorage after refreshes", async () => {
-    // Render first time
+    
     const { unmount } = render(<MemoryRouter><App /></MemoryRouter>);
 
     // Add first property to favorites
