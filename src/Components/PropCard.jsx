@@ -9,7 +9,7 @@ function PropCard({
 }) {
   const { id, type, bedrooms, price, shortDescription, location, images, added, url } = property;
 
-  // ✅ Base URL for dev and GitHub Pages
+  
   const base = import.meta.env.BASE_URL;
 
   // Thumbnail image (first property image)

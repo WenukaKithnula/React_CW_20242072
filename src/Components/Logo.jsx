@@ -1,7 +1,7 @@
 import "./Logo.css";
 
 function Logo() {
-  const base = import.meta.env.BASE_URL; // automatically handles dev vs production
+  const base = import.meta.env.BASE_URL; 
 
   return (
     <>

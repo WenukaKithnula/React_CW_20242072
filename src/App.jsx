@@ -39,7 +39,7 @@ const [searchCriteria, setSearchCriteria] = useState({
       .then((res) => res.json())
       .then((data) => {
         setProperties(data.properties);
-        setFilteredProperties(data.properties); // optional: show all initially
+        setFilteredProperties(data.properties); 
       })
       .catch((err) => console.error("Error loading properties:", err));
   }, []);
@@ -106,7 +106,7 @@ const [searchCriteria, setSearchCriteria] = useState({
         }
       }
 
-      /* ---------------- PASSED ALL CONDITIONS ---------------- */
+      /* if all the if condistions are passsed */
       return true;
     });
 
